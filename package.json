@@ -9,6 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@react-router/cloudflare": "^8.0.0",
     "@react-router/node": "^8.0.0",
     "@react-router/serve": "^8.0.0",
     "@tailwindcss/typography": "^0.5.20",
