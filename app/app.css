@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import url("bootstrap-icons/font/bootstrap-icons.css");
+
+@theme {
+  --color-blue-500: #0066ff;
+  --color-blue-600: #0052cc;
+}
+
+body {
+  font-family: "Inter", "Google Sans", "Open Sans", sans-serif;
+}
