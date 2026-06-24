@@ -29,7 +29,7 @@ export function Header() {
 
       <div className="flex items-center gap-4 md:gap-6 order-2 md:order-3 w-full md:w-auto justify-between md:justify-end pb-4 md:pb-0">
         <a href="https://zeroprofit.org" className="text-black font-bold hover:opacity-70 flex items-center gap-2 text-sm md:text-base">
-          <i className="bi bi-patch-check-fill text-lg"></i>
+          <img src="https://substackcdn.com/image/fetch/$s_!YU9o!,w_170,c_limit,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc66b391-ca1e-435a-bca3-c286b6c97085_314x314.png" alt="" className="w-[30px] h-[30px] object-contain" />
           Register your NonProfit
         </a>
         <a href="https://discord.gg/djXh8udpbn" className="bg-black text-white px-4 py-2 rounded-md font-bold hover:opacity-80 transition-opacity flex items-center gap-2 text-sm md:text-base">
