@@ -4,7 +4,16 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Google Sans", "Inter", "Open Sans", sans-serif;
+  --font-sans: "Google Sans", sans-serif;
   --color-blue-500: #0066ff;
   --color-blue-600: #0052cc;
+}
+
+body {
+  font-family: "Google Sans", sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b, .font-bold, .font-semibold {
+  font-weight: 500 !important;
 }
