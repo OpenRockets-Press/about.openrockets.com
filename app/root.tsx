@@ -10,7 +10,15 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
+export const meta: Route.MetaFunction = () => {
+  return [
+    { title: "About, Help & Docs | OpenRockets" },
+    { name: "description", content: "Documentation and help for OpenRockets" },
+  ];
+};
+
 export const links: Route.LinksFunction = () => [
+  { rel: "icon", type: "image/png", href: "/favicon.png" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",

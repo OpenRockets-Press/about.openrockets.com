@@ -13,6 +13,15 @@ export async function loader({ params }: Route.LoaderArgs) {
   return { doc };
 }
 
+export function meta({ data }: Route.MetaArgs) {
+  if (!data?.doc) {
+    return [{ title: "Document Not Found | OpenRockets" }];
+  }
+  return [
+    { title: `${data.doc.title} | OpenRockets` }
+  ];
+}
+
 export default function DocRoute() {
   const { doc } = useLoaderData<typeof loader>();
   
