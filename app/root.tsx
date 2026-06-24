@@ -9,6 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 export const meta: Route.MetaFunction = () => {
   return [
@@ -70,14 +72,30 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <div className="min-h-screen flex flex-col bg-white text-black font-sans">
+      <Header />
+      <main className="flex-1 flex flex-col items-center justify-center p-6 text-center mt-12 mb-12">
+        <iframe 
+          src="https://www.dinogame.dev/embed?theme=classic&embed=true&showThemeSelector=false&autoStart=true&showInstructions=false" 
+          width="100%" 
+          height="300"
+          frameBorder="0" 
+          scrolling="no" 
+          allowFullScreen
+          title="Chrome Dino Game"
+          style={{ border: 'none', maxWidth: '800px' }}
+          className="mx-auto mb-6"
+        ></iframe>
+        <h1 className="text-3xl font-bold mb-2 tracking-tight">{message}</h1>
+        <p className="text-lg font-medium max-w-lg mb-6">{details}</p>
+        
+        {stack && (
+          <pre className="w-full max-w-3xl p-4 overflow-x-auto bg-gray-100 text-left text-sm border border-black mb-8">
+            <code>{stack}</code>
+          </pre>
+        )}
+      </main>
+      <Footer />
+    </div>
   );
 }

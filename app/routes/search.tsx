@@ -47,11 +47,17 @@ export default function SearchPage() {
 
         {q && results.length === 0 && (
           <div className="text-center flex flex-col items-center justify-center mt-12 mb-12">
-            <img 
-              src="https://cdna.artstation.com/p/assets/images/images/067/012/126/original/ester-auroora-from-otter-animation-sketch.gif" 
-              alt="Not found. Maybe try searching on Google?" 
-              className="w-[150px] md:w-[200px] h-auto mb-6 object-contain"
-            />
+            <iframe 
+              src="https://www.dinogame.dev/embed?theme=classic&embed=true&showThemeSelector=false&autoStart=true&showInstructions=false" 
+              width="100%" 
+              height="300"
+              frameBorder="0" 
+              scrolling="no" 
+              allowFullScreen
+              title="Chrome Dino Game"
+              style={{ border: 'none', maxWidth: '800px' }}
+              className="mx-auto mb-6"
+            ></iframe>
             <h2 className="text-2xl font-bold text-black mb-2 tracking-tight">No results found</h2>
           </div>
         )}
