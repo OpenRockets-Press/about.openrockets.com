@@ -3,7 +3,7 @@ import type { Route } from "./+types/create";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
-export async function action({ request }: Route.ActionArgs) {
+export async function action({ request, context }: Route.ActionArgs) {
   const formData = await request.formData();
   const category = formData.get("category") as string;
   const content = formData.get("content") as string;
@@ -22,9 +22,11 @@ export async function action({ request }: Route.ActionArgs) {
   const title = titleMatch ? titleMatch[1].trim() : 'untitled';
   const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   
-  const token = process.env.GITHUB_TOKEN;
-  const owner = process.env.GITHUB_OWNER || "OpenRockets";
-  const repo = process.env.GITHUB_REPO || "about.openrockets.com";
+  // @ts-ignore
+  const env = context.cloudflare?.env || process.env;
+  const token = env.GITHUB_TOKEN;
+  const owner = env.GITHUB_OWNER || "OpenRockets-Press";
+  const repo = env.GITHUB_REPO || "about.openrockets.com";
   
   if (!token) {
     return { error: "Server error: GITHUB_TOKEN is not configured in the environment." };
