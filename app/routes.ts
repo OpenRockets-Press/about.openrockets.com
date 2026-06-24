@@ -6,4 +6,5 @@ export default [
     route("docs/:category/:slug", "routes/doc.tsx"),
   ]),
   route("create", "routes/create.tsx"),
+  route("search", "routes/search.tsx"),
 ] satisfies RouteConfig;
