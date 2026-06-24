@@ -81,7 +81,7 @@ export default function SearchPage() {
                   
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-semibold text-blue-600 uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded">
+                      <span className="text-[13px] font-bold text-black capitalize">
                         {doc.category.replace(/-/g, ' ')}
                       </span>
                     </div>

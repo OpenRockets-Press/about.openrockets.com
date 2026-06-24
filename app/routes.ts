@@ -8,4 +8,5 @@ export default [
   layout("routes/docs-layout.tsx", [
     route("docs/:category/:slug", "routes/doc.tsx"),
   ]),
+  route("categories", "routes/categories.tsx"),
 ] satisfies RouteConfig;

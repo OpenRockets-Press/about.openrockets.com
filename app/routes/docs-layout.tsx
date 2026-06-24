@@ -29,11 +29,11 @@ export default function DocsLayout() {
   const { categories } = useLoaderData<typeof loader>();
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-white font-sans text-gray-900">
+    <div className="flex flex-col min-h-screen bg-white font-sans text-gray-900">
       <Header />
-      <div className="flex flex-1 overflow-hidden flex-col md:flex-row">
+      <div className="flex flex-1 flex-col md:flex-row">
         <Sidebar categories={categories} />
-        <main className="flex-1 overflow-y-auto flex flex-col bg-white">
+        <main className="flex-1 flex flex-col bg-white">
           <div className="flex-1 w-full max-w-4xl mx-auto px-6 py-10 md:px-12 md:py-16">
             <Outlet />
           </div>

@@ -111,7 +111,7 @@ export default function Create() {
             <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12">
               <h1 className="text-3xl font-bold">Writer Admin Access</h1>
               <p className="text-lg font-medium max-w-lg">
-                Documentation publishing is restricted. You must be signed in with your `@openrockets.com` workspace account to create or edit articles.
+                Right admin access documentation publishing is restricted. You must sign with your <span className="font-bold">@openrockets.com</span> email.
               </p>
               <a 
                 href={'https://accounts.openrockets.com/login?redirect_uri=' + encodeURIComponent('https://about.openrockets.com/auth/sso-callback?returnTo=/create')}
@@ -164,12 +164,18 @@ export default function Create() {
                   </p>
                 </div>
                 
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-2">
+                  <p className="text-sm text-yellow-800 font-medium">
+                    Notice: All articles that you submit will take about 15 minutes to publish and appear on the live site.
+                  </p>
+                </div>
+                
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
                   className="bg-black text-white font-bold py-3 px-8 hover:opacity-80 w-full md:w-auto self-end disabled:opacity-50 transition-opacity"
                 >
-                  {isSubmitting ? "Publishing to GitHub..." : "Publish Documentation"}
+                  {isSubmitting ? "Publishing..." : "Publish Documentation"}
                 </button>
               </Form>
             </>

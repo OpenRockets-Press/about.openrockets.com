@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export function Footer() {
   return (
-    <footer className="bg-white text-black mt-auto w-full border-t border-black">
+    <footer className="bg-white text-black mt-auto w-full">
       <div className="max-w-4xl mx-auto px-6 py-10 md:px-12 flex flex-col items-start text-left">
         <div className="flex flex-col items-start gap-3 mb-6">
           <img src="https://openrockets.com/v/openrockets.png" alt="OpenRockets Logo" className="w-[120px] invert" />
@@ -19,13 +19,14 @@ export function Footer() {
             <i className="bi bi-twitter-x"></i> Twitter
           </a>
           <a href="https://zeroprofit.org" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
-            <i className="bi bi-patch-check-fill"></i> ZeroProfit
+            <img src="https://substackcdn.com/image/fetch/$s_!YU9o!,w_170,c_limit,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc66b391-ca1e-435a-bca3-c286b6c97085_314x314.png" alt="" /> ZeroProfit
           </a>
           <Link to="/create" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
             <i className="bi bi-pencil-square"></i> Writer Admin
           </Link>
         </div>
         <div className="pt-6 w-full text-black text-sm font-medium">
+          <p>Contact 24/7: team@openrockets.com</p>
           <p>© & (TM) 2022-2026 OpenRockets Incorporated. All Rights Reserved.</p>
         </div>
       </div>
