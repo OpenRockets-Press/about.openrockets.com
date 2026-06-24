@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export function Footer() {
   return (
     <footer className="bg-white text-black px-6 py-10 mt-auto w-full">
@@ -11,6 +13,7 @@ export function Footer() {
           <a href="https://linkedin.com/company/openrocketsinc" className="text-black hover:text-gray-700 transition-colors font-medium">LinkedIn</a>
           <a href="https://x.com/openrockets" className="text-black hover:text-gray-700 transition-colors font-medium">Twitter</a>
           <a href="https://zeroprofit.org" className="text-black hover:text-gray-700 transition-colors font-medium">ZeroProfit</a>
+          <Link to="/create" className="text-black hover:text-gray-700 transition-colors font-medium">Writer Admin</Link>
         </div>
         <div className="border-t border-gray-200 pt-6 w-full text-black text-sm">
           <p>© & (TM) 2022-2026 OpenRockets Incorporated. All Rights Reserved.</p>
