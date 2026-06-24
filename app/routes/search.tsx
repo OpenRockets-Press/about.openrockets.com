@@ -28,15 +28,15 @@ export default function SearchPage() {
   const { q, results } = useLoaderData<typeof loader>();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-white text-black font-sans">
       <Header />
       
       <main className="flex-1 container mx-auto px-6 py-12 max-w-4xl">
         <div className="mb-10">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl font-bold text-black mb-4">
             Search Results
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-black font-medium text-lg">
             {q ? (
               <>Showing results for <span className="font-semibold text-blue-600">"{q}"</span></>
             ) : (
@@ -46,14 +46,13 @@ export default function SearchPage() {
         </div>
 
         {q && results.length === 0 && (
-          <div className="bg-white p-12 rounded-xl shadow-sm border border-gray-100 text-center flex flex-col items-center justify-center">
-            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-              <Search className="text-gray-400 w-8 h-8" />
-            </div>
-            <h2 className="text-xl font-bold text-gray-900 mb-2">No results found</h2>
-            <p className="text-gray-500 max-w-md">
-              We couldn't find any documentation matching your search query. Try using different keywords or checking for typos.
-            </p>
+          <div className="text-center flex flex-col items-center justify-center mt-12 mb-12">
+            <img 
+              src="https://cdna.artstation.com/p/assets/images/images/067/012/126/original/ester-auroora-from-otter-animation-sketch.gif" 
+              alt="No results found" 
+              className="w-[150px] md:w-[200px] h-auto mb-6 object-contain"
+            />
+            <h2 className="text-2xl font-bold text-black mb-2 tracking-tight">No results found</h2>
           </div>
         )}
 
@@ -67,10 +66,10 @@ export default function SearchPage() {
               <Link 
                 key={`${doc.category}-${doc.slug}-${idx}`} 
                 to={`/docs/${doc.category}/${doc.slug}`}
-                className="group block bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-200 transition-all"
+                className="group block bg-white p-6 shadow-sm border border-black hover:bg-black/5 transition-all"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                  <div className="w-10 h-10 bg-black text-white flex items-center justify-center shrink-0">
                     <FileText size={20} />
                   </div>
                   
@@ -80,16 +79,16 @@ export default function SearchPage() {
                         {doc.category.replace(/-/g, ' ')}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg font-bold text-black mb-2 group-hover:underline">
                       {doc.title}
                     </h3>
-                    <p className="text-gray-500 text-sm line-clamp-2">
+                    <p className="text-black text-sm line-clamp-2">
                       {/* Strip markdown and preview text */}
                       {doc.content.replace(/#.*$/gm, '').replace(/\[.*?\]/g, '').replace(/[*_~`]/g, '').trim().substring(0, 150)}...
                     </p>
                   </div>
                   
-                  <div className="hidden sm:flex items-center self-center shrink-0 text-gray-300 group-hover:text-blue-500 transition-colors pl-4">
+                  <div className="hidden sm:flex items-center self-center shrink-0 text-black pl-4">
                     <ChevronRight size={24} />
                   </div>
                 </div>
