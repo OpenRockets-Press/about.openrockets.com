@@ -2,20 +2,30 @@ import { Link } from "react-router";
 
 export function Footer() {
   return (
-    <footer className="bg-white text-black px-6 py-10 mt-auto w-full">
-      <div className="max-w-[1200px] mx-auto flex flex-col items-center text-center">
-        <div className="flex flex-col items-center gap-3 mb-6">
+    <footer className="bg-white text-black mt-auto w-full border-t border-black">
+      <div className="max-w-4xl mx-auto px-6 py-10 md:px-12 flex flex-col items-start text-left">
+        <div className="flex flex-col items-start gap-3 mb-6">
           <img src="https://openrockets.com/v/openrockets.png" alt="OpenRockets Logo" className="w-[120px] invert" />
           <span className="text-xl font-bold tracking-tight font-sans">About, Help & Docs</span>
         </div>
-        <div className="flex flex-wrap justify-center gap-8 mb-8">
-          <a href="https://discord.gg/djXh8udpbn" className="text-black hover:text-gray-700 transition-colors font-medium">Discord</a>
-          <a href="https://linkedin.com/company/openrocketsinc" className="text-black hover:text-gray-700 transition-colors font-medium">LinkedIn</a>
-          <a href="https://x.com/openrockets" className="text-black hover:text-gray-700 transition-colors font-medium">Twitter</a>
-          <a href="https://zeroprofit.org" className="text-black hover:text-gray-700 transition-colors font-medium">ZeroProfit</a>
-          <Link to="/create" className="text-black hover:text-gray-700 transition-colors font-medium">Writer Admin</Link>
+        <div className="flex flex-col md:flex-row flex-wrap justify-start gap-6 md:gap-8 mb-8 w-full">
+          <a href="https://discord.gg/djXh8udpbn" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
+            <i className="bi bi-discord"></i> Discord
+          </a>
+          <a href="https://linkedin.com/company/openrocketsinc" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
+            <i className="bi bi-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://x.com/openrockets" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
+            <i className="bi bi-twitter-x"></i> Twitter
+          </a>
+          <a href="https://zeroprofit.org" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
+            <i className="bi bi-patch-check-fill"></i> ZeroProfit
+          </a>
+          <Link to="/create" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
+            <i className="bi bi-pencil-square"></i> Writer Admin
+          </Link>
         </div>
-        <div className="border-t border-gray-200 pt-6 w-full text-black text-sm">
+        <div className="pt-6 w-full text-black text-sm font-medium">
           <p>© & (TM) 2022-2026 OpenRockets Incorporated. All Rights Reserved.</p>
         </div>
       </div>

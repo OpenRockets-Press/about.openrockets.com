@@ -4,10 +4,7 @@
 @import url("https://fonts.cdnfonts.com/css/google-sans");
 
 @theme {
+  --font-sans: "Google Sans", "Inter", "Open Sans", sans-serif;
   --color-blue-500: #0066ff;
   --color-blue-600: #0052cc;
-}
-
-body {
-  font-family: "Google Sans", "Inter", "Open Sans", sans-serif;
 }
