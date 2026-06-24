@@ -38,9 +38,9 @@ export default function SearchPage() {
           </h1>
           <p className="text-black font-medium text-lg">
             {q ? (
-              <>Showing results for <span className="font-semibold text-blue-600">"{q}"</span></>
+              <>Helping you to find<span className="font-semibold text-blue-600">{q}...</span></>
             ) : (
-              "Please enter a search query."
+              "Please search something!"
             )}
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function SearchPage() {
           <div className="text-center flex flex-col items-center justify-center mt-12 mb-12">
             <img 
               src="https://cdna.artstation.com/p/assets/images/images/067/012/126/original/ester-auroora-from-otter-animation-sketch.gif" 
-              alt="No results found" 
+              alt="Not found. Maybe try searching on Google?" 
               className="w-[150px] md:w-[200px] h-auto mb-6 object-contain"
             />
             <h2 className="text-2xl font-bold text-black mb-2 tracking-tight">No results found</h2>

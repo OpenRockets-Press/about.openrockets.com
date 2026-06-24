@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Architecture Overview - OpenRockets Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="https://openrockets.com/i/assets/static/openthread_logo_bash-trans-removebg-preview (1).png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="top-header">
+    <div class="header-left">
+      <a href="../index.html">
+        <img src="https://openrockets.com/v/openrockets.png" alt="OpenRockets Logo" class="header-logo">
+      </a>
+    </div>
+    <div class="header-search">
+      <form action="../search/index.html" method="get" class="search-form">
+        <input type="text" name="q" class="search-input" placeholder="Search documentation..." required>
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+    </div>
+    <div class="header-right">
+      <a href="https://zeroprofit.org" class="header-link">Register your NonProfit</a>
+      <a href="https://discord.gg/djXh8udpbn" class="header-btn">Discord</a>
+    </div>
+  </header>
+
+  <div class="docs-container">
+    <aside class="sidebar">
+      <div class="sidebar-title">Get Started</div>
+      <a href="../introduction/index.html" class="sidebar-item">Introduction</a>
+      <a href="../quickstart/index.html" class="sidebar-item">Quickstart Guide</a>
+      <a href="../architecture/index.html" class="sidebar-item active">Architecture Overview</a>
+    </aside>
+    <main class="content">
+      <div id="markdown-content">Loading content...</div>
+      
+      <!-- OpenRockets Footer -->
+      <footer class="or-footer">
+        <div class="footer-container">
+          <div class="footer-logo-section">
+            <img src="https://openrockets.com/v/openrockets.png" alt="OpenRockets Logo" class="footer-logo">
+            <span class="footer-brand">About, Help & Docs</span>
+          </div>
+          <div class="footer-links">
+            <a href="https://discord.gg/djXh8udpbn">Discord</a>
+            <a href="https://linkedin.com/company/openrocketsinc">LinkedIn</a>
+            <a href="https://x.com/openrockets">Twitter</a>
+            <a href="https://zeroprofit.org">ZeroProfit</a>
+          </div>
+          <div class="footer-bottom">
+            <p>© & (TM) 2022-2026 OpenRockets Incorporated. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    fetch('README.md')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return res  ponse.text();
+      })
+      .then(text => {
+        document.getElementById('markdown-content').innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById('markdown-content').innerHTML = '<h1>Error loading content</h1><p>Please ensure you are viewing this via a local web server to allow fetching README.md.</p>';
+      });
+  </script>
+</body>
+</html>
