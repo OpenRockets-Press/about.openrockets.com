@@ -88,7 +88,7 @@ function checkURL2(request, init) {
 __name(checkURL2, "checkURL");
 var urls2;
 var init_checked_fetch = __esm({
-  "../.wrangler/tmp/bundle-mDXPRG/checked-fetch.js"() {
+  "../.wrangler/tmp/bundle-PIdJmZ/checked-fetch.js"() {
     "use strict";
     urls2 = /* @__PURE__ */ new Set();
     __name2(checkURL2, "checkURL");
@@ -38022,7 +38022,37 @@ function Layout({ children }) {
   });
 }
 __name(Layout, "Layout");
+async function getAllDocs() {
+  const modules = /* @__PURE__ */ Object.assign({ "../../documents/README.md": /* @__PURE__ */ __name2(() => Promise.resolve().then(() => (init_README_B1Y8uXB(), README_B1Y8uXB_exports)).then((m) => m["default"]), "../../documents/README.md") });
+  const docs2 = [];
+  for (const path in modules) {
+    const rawContent = await modules[path]();
+    const categoryMatch = rawContent.match(/^\[(.*?)\]/m);
+    const titleMatch = rawContent.match(/^#\s+(.*)/m);
+    const category = categoryMatch ? categoryMatch[1].trim() : "uncategorized";
+    const title = titleMatch ? titleMatch[1].trim() : "Untitled Document";
+    const filename = path.split("/").pop()?.replace(".md", "") || "";
+    const slug = filename.toLowerCase() === "readme" ? title.toLowerCase().replace(/[^a-z0-9]+/g, "-") : filename;
+    docs2.push({
+      category,
+      slug,
+      title,
+      content: rawContent
+    });
+  }
+  return docs2;
+}
+__name(getAllDocs, "getAllDocs");
+async function getDocBySlug(category, slug) {
+  return (await getAllDocs()).find((d) => d.category === category && d.slug === slug) || null;
+}
+__name(getDocBySlug, "getDocBySlug");
 async function loader$2() {
+  const docs2 = await getAllDocs();
+  if (docs2.length > 0) {
+    const firstDoc = docs2[0];
+    return redirect(`/docs/${firstDoc.category}/${firstDoc.slug}`);
+  }
   return redirect("/docs/openrockets-press/introduction");
 }
 __name(loader$2, "loader$2");
@@ -38147,31 +38177,6 @@ function Footer() {
   });
 }
 __name(Footer, "Footer");
-async function getAllDocs() {
-  const modules = /* @__PURE__ */ Object.assign({ "../../documents/README.md": /* @__PURE__ */ __name2(() => Promise.resolve().then(() => (init_README_B1Y8uXB(), README_B1Y8uXB_exports)).then((m) => m["default"]), "../../documents/README.md") });
-  const docs2 = [];
-  for (const path in modules) {
-    const rawContent = await modules[path]();
-    const categoryMatch = rawContent.match(/^\[(.*?)\]/m);
-    const titleMatch = rawContent.match(/^#\s+(.*)/m);
-    const category = categoryMatch ? categoryMatch[1].trim() : "uncategorized";
-    const title = titleMatch ? titleMatch[1].trim() : "Untitled Document";
-    const filename = path.split("/").pop()?.replace(".md", "") || "";
-    const slug = filename.toLowerCase() === "readme" ? title.toLowerCase().replace(/[^a-z0-9]+/g, "-") : filename;
-    docs2.push({
-      category,
-      slug,
-      title,
-      content: rawContent
-    });
-  }
-  return docs2;
-}
-__name(getAllDocs, "getAllDocs");
-async function getDocBySlug(category, slug) {
-  return (await getAllDocs()).find((d) => d.category === category && d.slug === slug) || null;
-}
-__name(getDocBySlug, "getDocBySlug");
 async function loader$1() {
   const docs2 = await getAllDocs();
   const categoriesMap = /* @__PURE__ */ new Map();
@@ -38334,6 +38339,8 @@ var init_server4 = __esm({
         ]
       });
     }, "ErrorBoundary2"), "ErrorBoundary"));
+    __name2(getAllDocs, "getAllDocs");
+    __name2(getDocBySlug, "getDocBySlug");
     home_exports = /* @__PURE__ */ __exportAll({
       default: /* @__PURE__ */ __name2(() => home_default, "default"),
       loader: /* @__PURE__ */ __name2(() => loader$2, "loader")
@@ -38345,8 +38352,6 @@ var init_server4 = __esm({
     __name2(Header, "Header");
     __name2(Sidebar, "Sidebar");
     __name2(Footer, "Footer");
-    __name2(getAllDocs, "getAllDocs");
-    __name2(getDocBySlug, "getDocBySlug");
     docs_layout_exports = /* @__PURE__ */ __exportAll({
       default: /* @__PURE__ */ __name2(() => docs_layout_default, "default"),
       loader: /* @__PURE__ */ __name2(() => loader$1, "loader")
@@ -38703,6 +38708,14 @@ var init_path = __esm({
     handleRequest2 = createRequestHandler(server_exports, "production");
     onRequest = /* @__PURE__ */ __name2(async (context) => {
       try {
+        let response;
+        try {
+          response = await context.env.ASSETS.fetch(context.request.url, context.request.clone());
+          if (response && response.status >= 200 && response.status < 400) {
+            return new Response(response.body, response);
+          }
+        } catch (e) {
+        }
         const loadContext = new RouterContextProvider();
         loadContext.set("cloudflare", { env: context.env, ctx: context.ctx || {} });
         return await handleRequest2(context.request, loadContext);

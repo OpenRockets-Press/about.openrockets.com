@@ -41,7 +41,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// ../.wrangler/tmp/bundle-mDXPRG/checked-fetch.js
+// ../.wrangler/tmp/bundle-PIdJmZ/checked-fetch.js
 function checkURL(request, init) {
   const url = request instanceof URL ? request : new URL(
     (typeof request === "string" ? new Request(request, init) : request).url
@@ -59,7 +59,7 @@ function checkURL(request, init) {
 }
 var urls;
 var init_checked_fetch = __esm({
-  "../.wrangler/tmp/bundle-mDXPRG/checked-fetch.js"() {
+  "../.wrangler/tmp/bundle-PIdJmZ/checked-fetch.js"() {
     "use strict";
     urls = /* @__PURE__ */ new Set();
     __name(checkURL, "checkURL");
@@ -36938,7 +36938,35 @@ function Layout({ children }) {
     ] })]
   });
 }
+async function getAllDocs() {
+  const modules = /* @__PURE__ */ Object.assign({ "../../documents/README.md": /* @__PURE__ */ __name(() => Promise.resolve().then(() => (init_README_B1Y8uXB(), README_B1Y8uXB_exports)).then((m) => m["default"]), "../../documents/README.md") });
+  const docs2 = [];
+  for (const path in modules) {
+    const rawContent = await modules[path]();
+    const categoryMatch = rawContent.match(/^\[(.*?)\]/m);
+    const titleMatch = rawContent.match(/^#\s+(.*)/m);
+    const category = categoryMatch ? categoryMatch[1].trim() : "uncategorized";
+    const title = titleMatch ? titleMatch[1].trim() : "Untitled Document";
+    const filename = path.split("/").pop()?.replace(".md", "") || "";
+    const slug = filename.toLowerCase() === "readme" ? title.toLowerCase().replace(/[^a-z0-9]+/g, "-") : filename;
+    docs2.push({
+      category,
+      slug,
+      title,
+      content: rawContent
+    });
+  }
+  return docs2;
+}
+async function getDocBySlug(category, slug) {
+  return (await getAllDocs()).find((d) => d.category === category && d.slug === slug) || null;
+}
 async function loader$2() {
+  const docs2 = await getAllDocs();
+  if (docs2.length > 0) {
+    const firstDoc = docs2[0];
+    return redirect(`/docs/${firstDoc.category}/${firstDoc.slug}`);
+  }
   return redirect("/docs/openrockets-press/introduction");
 }
 function Header() {
@@ -37058,29 +37086,6 @@ function Footer() {
       ]
     })
   });
-}
-async function getAllDocs() {
-  const modules = /* @__PURE__ */ Object.assign({ "../../documents/README.md": /* @__PURE__ */ __name(() => Promise.resolve().then(() => (init_README_B1Y8uXB(), README_B1Y8uXB_exports)).then((m) => m["default"]), "../../documents/README.md") });
-  const docs2 = [];
-  for (const path in modules) {
-    const rawContent = await modules[path]();
-    const categoryMatch = rawContent.match(/^\[(.*?)\]/m);
-    const titleMatch = rawContent.match(/^#\s+(.*)/m);
-    const category = categoryMatch ? categoryMatch[1].trim() : "uncategorized";
-    const title = titleMatch ? titleMatch[1].trim() : "Untitled Document";
-    const filename = path.split("/").pop()?.replace(".md", "") || "";
-    const slug = filename.toLowerCase() === "readme" ? title.toLowerCase().replace(/[^a-z0-9]+/g, "-") : filename;
-    docs2.push({
-      category,
-      slug,
-      title,
-      content: rawContent
-    });
-  }
-  return docs2;
-}
-async function getDocBySlug(category, slug) {
-  return (await getAllDocs()).find((d) => d.category === category && d.slug === slug) || null;
 }
 async function loader$1() {
   const docs2 = await getAllDocs();
@@ -37212,6 +37217,8 @@ var init_server4 = __esm({
         ]
       });
     }, "ErrorBoundary"));
+    __name(getAllDocs, "getAllDocs");
+    __name(getDocBySlug, "getDocBySlug");
     home_exports = /* @__PURE__ */ __exportAll({
       default: /* @__PURE__ */ __name(() => home_default, "default"),
       loader: /* @__PURE__ */ __name(() => loader$2, "loader")
@@ -37223,8 +37230,6 @@ var init_server4 = __esm({
     __name(Header, "Header");
     __name(Sidebar, "Sidebar");
     __name(Footer, "Footer");
-    __name(getAllDocs, "getAllDocs");
-    __name(getDocBySlug, "getDocBySlug");
     docs_layout_exports = /* @__PURE__ */ __exportAll({
       default: /* @__PURE__ */ __name(() => docs_layout_default, "default"),
       loader: /* @__PURE__ */ __name(() => loader$1, "loader")
@@ -37582,6 +37587,14 @@ var init_path = __esm({
     handleRequest2 = createRequestHandler(server_exports, "production");
     onRequest = /* @__PURE__ */ __name(async (context) => {
       try {
+        let response;
+        try {
+          response = await context.env.ASSETS.fetch(context.request.url, context.request.clone());
+          if (response && response.status >= 200 && response.status < 400) {
+            return new Response(response.body, response);
+          }
+        } catch (e) {
+        }
         const loadContext = new RouterContextProvider();
         loadContext.set("cloudflare", { env: context.env, ctx: context.ctx || {} });
         return await handleRequest2(context.request, loadContext);
@@ -37611,11 +37624,11 @@ var init_functionsRoutes_0_968647247076029 = __esm({
   }
 });
 
-// ../.wrangler/tmp/bundle-mDXPRG/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-PIdJmZ/middleware-loader.entry.ts
 init_functionsRoutes_0_968647247076029();
 init_checked_fetch();
 
-// ../.wrangler/tmp/bundle-mDXPRG/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-PIdJmZ/middleware-insertion-facade.js
 init_functionsRoutes_0_968647247076029();
 init_checked_fetch();
 
@@ -38116,7 +38129,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env2, _ctx, middlewareCtx
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-mDXPRG/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-PIdJmZ/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -38150,7 +38163,7 @@ function __facade_invoke__(request, env2, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-mDXPRG/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-PIdJmZ/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
