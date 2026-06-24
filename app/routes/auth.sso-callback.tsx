@@ -17,7 +17,7 @@ export async function loader({ request, context }: Route.LoaderArgs) {
   }
 
   // @ts-ignore
-  const env = context.cloudflare?.env || process.env;
+  const env = context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {});
 
   try {
     const response = await fetch("https://openrocketsauth.alwaysdata.net/api/auth/me", {

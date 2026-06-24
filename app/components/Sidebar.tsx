@@ -14,7 +14,7 @@ export function Sidebar({ categories }: { categories: Category[] }) {
       
       {categories.map((category) => (
         <div key={category.name} className="mb-8 mr-6 md:mr-0 inline-block md:block align-top">
-          <div className="text-[13px] font-bold text-black mx-6 mb-3 tracking-wide">
+          <div className="text-[13px] font-bold text-black mx-6 mb-3 tracking-wide capitalize">
             {category.name.replace(/-/g, ' ')}
           </div>
           <div className="flex md:flex-col flex-row">
