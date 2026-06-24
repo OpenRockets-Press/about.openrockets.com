@@ -41,7 +41,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// ../.wrangler/tmp/bundle-KCBPXf/checked-fetch.js
+// ../.wrangler/tmp/bundle-WCi9Qf/checked-fetch.js
 function checkURL(request, init) {
   const url = request instanceof URL ? request : new URL(
     (typeof request === "string" ? new Request(request, init) : request).url
@@ -59,7 +59,7 @@ function checkURL(request, init) {
 }
 var urls;
 var init_checked_fetch = __esm({
-  "../.wrangler/tmp/bundle-KCBPXf/checked-fetch.js"() {
+  "../.wrangler/tmp/bundle-WCi9Qf/checked-fetch.js"() {
     "use strict";
     urls = /* @__PURE__ */ new Set();
     __name(checkURL, "checkURL");
@@ -37335,8 +37335,7 @@ async function loader({ params }) {
   return { doc };
 }
 function meta({ data: data2 }) {
-  if (!data2?.doc) return [{ title: "Document Not Found | OpenRockets" }];
-  return [{ title: `${data2.doc.title} | OpenRockets` }];
+  return [{ title: `${(data2?.doc || (data2?.title ? data2 : null))?.title || "Document Not Found"} | OpenRockets` }];
 }
 var import_server4, import_jsx_runtime2, import_react6, __defProp2, __exportAll, entry_server_exports, streamTimeout, root_exports, meta$1, links, root_default, ErrorBoundary, home_exports, home_default, COOKIE_NAME, create_exports, create_default, search_exports, search_default, auth_sso_callback_exports, docs_layout_exports, docs_layout_default, doc_exports, doc_default, server_manifest_default, assetsBuildDirectory, basename2, future, ssr, isSpaMode, prerender, routeDiscovery, publicPath, entry, routes2, allowedActionOrigins;
 var init_server4 = __esm({
@@ -37724,14 +37723,14 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": true,
-          "module": "/assets/root-Dem4H-lA.js",
+          "module": "/assets/root-Pi2o73Mb.js",
           "imports": [
             "/assets/components-BTTkrXdt.js",
             "/assets/components-DRsIKch7.js",
             "/assets/jsx-runtime-CS_A_yFI.js",
             "/assets/lib-DnNTIa7K.js"
           ],
-          "css": ["/assets/root-DA-nYBIZ.css"],
+          "css": ["/assets/root-CDkfB7DY.css"],
           "clientActionModule": void 0,
           "clientLoaderModule": void 0,
           "clientMiddlewareModule": void 0,
@@ -37873,7 +37872,7 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": false,
-          "module": "/assets/doc-BFX0ANAn.js",
+          "module": "/assets/doc-utEjhDr4.js",
           "imports": ["/assets/components-BTTkrXdt.js", "/assets/jsx-runtime-CS_A_yFI.js"],
           "css": [],
           "clientActionModule": void 0,
@@ -37882,8 +37881,8 @@ var init_server4 = __esm({
           "hydrateFallbackModule": void 0
         }
       },
-      "url": "/assets/manifest-80d662b0.js",
-      "version": "80d662b0",
+      "url": "/assets/manifest-556e6587.js",
+      "version": "556e6587",
       "sri": void 0
     };
     assetsBuildDirectory = "build\\client";
@@ -37980,7 +37979,8 @@ var init_path = __esm({
           }
         } catch (e) {
         }
-        const loadContext = { cloudflare: { env: context.env, ctx: context.ctx || {} } };
+        const loadContext = new RouterContextProvider();
+        loadContext.set("cloudflare", { env: context.env, ctx: context.ctx || {} });
         return await handleRequest2(context.request, loadContext);
       } catch (error) {
         console.error("Worker Crash:", error);
@@ -38008,11 +38008,11 @@ var init_functionsRoutes_0_968647247076029 = __esm({
   }
 });
 
-// ../.wrangler/tmp/bundle-KCBPXf/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-WCi9Qf/middleware-loader.entry.ts
 init_functionsRoutes_0_968647247076029();
 init_checked_fetch();
 
-// ../.wrangler/tmp/bundle-KCBPXf/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-WCi9Qf/middleware-insertion-facade.js
 init_functionsRoutes_0_968647247076029();
 init_checked_fetch();
 
@@ -38513,7 +38513,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env2, _ctx, middlewareCtx
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-KCBPXf/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-WCi9Qf/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -38547,7 +38547,7 @@ function __facade_invoke__(request, env2, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-KCBPXf/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-WCi9Qf/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

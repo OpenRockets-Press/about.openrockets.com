@@ -7,7 +7,8 @@ import { getSessionUser } from "../utils/auth.server";
 
 export async function loader({ request, context }: Route.LoaderArgs) {
   // @ts-ignore
-  const env = context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {});
+  const cloudflareCtx = typeof context.get === 'function' ? context.get("cloudflare") : context.cloudflare;
+  const env = cloudflareCtx?.env || (typeof process !== "undefined" ? process.env : {});
   const user = await getSessionUser(request, env);
   
   if (!user) {
@@ -23,7 +24,8 @@ export async function loader({ request, context }: Route.LoaderArgs) {
 
 export async function action({ request, context }: Route.ActionArgs) {
   // @ts-ignore
-  const env = context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {});
+  const cloudflareCtx = typeof context.get === 'function' ? context.get("cloudflare") : context.cloudflare;
+  const env = cloudflareCtx?.env || (typeof process !== "undefined" ? process.env : {});
   const user = await getSessionUser(request, env);
   
   if (!user || !user.email.endsWith("@openrockets.com")) {

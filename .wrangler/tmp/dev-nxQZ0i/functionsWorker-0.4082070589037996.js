@@ -88,7 +88,7 @@ function checkURL2(request, init) {
 __name(checkURL2, "checkURL");
 var urls2;
 var init_checked_fetch = __esm({
-  "../.wrangler/tmp/bundle-Ed9F7X/checked-fetch.js"() {
+  "../.wrangler/tmp/bundle-27owak/checked-fetch.js"() {
     "use strict";
     urls2 = /* @__PURE__ */ new Set();
     __name2(checkURL2, "checkURL");
@@ -38437,8 +38437,7 @@ async function loader({ params }) {
 }
 __name(loader, "loader");
 function meta({ data: data2 }) {
-  if (!data2?.doc) return [{ title: "Document Not Found | OpenRockets" }];
-  return [{ title: `${data2.doc.title} | OpenRockets` }];
+  return [{ title: `${(data2?.doc || (data2?.title ? data2 : null))?.title || "Document Not Found"} | OpenRockets` }];
 }
 __name(meta, "meta");
 var import_server4;
@@ -38862,14 +38861,14 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": true,
-          "module": "/assets/root-Dem4H-lA.js",
+          "module": "/assets/root-Pi2o73Mb.js",
           "imports": [
             "/assets/components-BTTkrXdt.js",
             "/assets/components-DRsIKch7.js",
             "/assets/jsx-runtime-CS_A_yFI.js",
             "/assets/lib-DnNTIa7K.js"
           ],
-          "css": ["/assets/root-DA-nYBIZ.css"],
+          "css": ["/assets/root-CDkfB7DY.css"],
           "clientActionModule": void 0,
           "clientLoaderModule": void 0,
           "clientMiddlewareModule": void 0,
@@ -39011,7 +39010,7 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": false,
-          "module": "/assets/doc-BFX0ANAn.js",
+          "module": "/assets/doc-utEjhDr4.js",
           "imports": ["/assets/components-BTTkrXdt.js", "/assets/jsx-runtime-CS_A_yFI.js"],
           "css": [],
           "clientActionModule": void 0,
@@ -39020,8 +39019,8 @@ var init_server4 = __esm({
           "hydrateFallbackModule": void 0
         }
       },
-      "url": "/assets/manifest-80d662b0.js",
-      "version": "80d662b0",
+      "url": "/assets/manifest-556e6587.js",
+      "version": "556e6587",
       "sri": void 0
     };
     assetsBuildDirectory = "build\\client";
@@ -39117,7 +39116,8 @@ var init_path = __esm({
           }
         } catch (e) {
         }
-        const loadContext = { cloudflare: { env: context.env, ctx: context.ctx || {} } };
+        const loadContext = new RouterContextProvider();
+        loadContext.set("cloudflare", { env: context.env, ctx: context.ctx || {} });
         return await handleRequest2(context.request, loadContext);
       } catch (error) {
         console.error("Worker Crash:", error);
