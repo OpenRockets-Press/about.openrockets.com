@@ -34,7 +34,7 @@ export default function CategoriesRoute() {
   const { categories } = useLoaderData<typeof loader>();
 
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans text-black">
+    <div className="flex flex-col min-h-screen bg-[#fff6dc] font-sans text-black">
       <Header />
       <main className="flex-1 container mx-auto px-6 py-12 max-w-6xl">
         <h1 className="text-3xl font-bold mb-10 tracking-tight">Documentation Categories</h1>
@@ -53,7 +53,7 @@ export default function CategoriesRoute() {
                     <Link
                       key={file.slug}
                       to={`/docs/${category.name}/${file.slug}`}
-                      className="group flex items-center justify-between p-3 bg-gray-50 border border-transparent hover:border-black hover:bg-white transition-colors"
+                      className="group flex items-center justify-between p-3 bg-gray-50 border border-transparent hover:border-black hover:bg-[#fff6dc] transition-colors"
                     >
                       <div className="flex items-center gap-3 min-w-0">
                         <FileText size={16} className="shrink-0 text-black" />

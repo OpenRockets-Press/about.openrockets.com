@@ -27,13 +27,13 @@ export function MaterialInput({ label, multiline, className = "", ...props }: Ma
 
   const isFloating = focused || hasValue;
 
-  const containerClasses = `relative border border-black bg-white rounded-md transition-shadow ${
+  const containerClasses = `relative border border-black bg-[#fff6dc] rounded-md transition-shadow ${
     focused ? "ring-1 ring-black" : ""
   } ${className}`;
 
   const labelClasses = `absolute left-3 transition-all duration-200 pointer-events-none ${
     isFloating 
-      ? "-top-2.5 text-xs bg-white px-1 font-bold text-black" 
+      ? "-top-2.5 text-xs bg-[#fff6dc] px-1 font-bold text-black" 
       : "top-3 text-base text-gray-500 font-medium"
   }`;
 

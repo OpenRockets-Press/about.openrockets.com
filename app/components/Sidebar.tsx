@@ -7,7 +7,7 @@ export type Category = {
 
 export function Sidebar({ categories }: { categories: Category[] }) {
   return (
-    <aside className="w-full md:w-[280px] bg-white md:border-r border-black md:py-6 shrink-0 flex flex-col md:sticky md:top-0 md:h-screen md:overflow-y-auto">
+    <aside className="w-full md:w-[280px] bg-[#fff6dc] md:border-r border-black md:py-6 shrink-0 flex flex-col md:sticky md:top-0 md:h-screen md:overflow-y-auto">
       {/* Mobile "All Categories" Button */}
       <div className="md:hidden border-b border-black p-4 bg-gray-50">
         <NavLink 

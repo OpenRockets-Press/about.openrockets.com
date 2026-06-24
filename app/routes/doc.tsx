@@ -13,8 +13,9 @@ export async function loader({ params }: Route.LoaderArgs) {
   return { doc };
 }
 
-export function meta({ data }: Route.MetaArgs) {
-  const doc = data?.doc || (data?.title ? data : null);
+export function meta(args: any) {
+  const data = args.data || args.loaderData || args.matches?.[args.matches.length - 1]?.data;
+  const doc = data?.doc;
   const title = doc?.title || "Document Not Found";
   return [
     { title: `${title} | OpenRockets` }

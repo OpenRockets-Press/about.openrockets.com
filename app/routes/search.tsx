@@ -28,7 +28,7 @@ export default function SearchPage() {
   const { q, results } = useLoaderData<typeof loader>();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-black font-sans">
+    <div className="min-h-screen flex flex-col bg-[#fff6dc] text-black font-sans">
       <Header />
       
       <main className="flex-1 container mx-auto px-6 py-12 max-w-4xl">
@@ -72,7 +72,7 @@ export default function SearchPage() {
               <Link 
                 key={`${doc.category}-${doc.slug}-${idx}`} 
                 to={`/docs/${doc.category}/${doc.slug}`}
-                className="group block bg-white p-6 shadow-sm border border-black hover:bg-black/5 transition-all"
+                className="group block bg-[#fff6dc] p-6 shadow-sm border border-black hover:bg-black/5 transition-all"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-black text-white flex items-center justify-center shrink-0">

@@ -96,7 +96,7 @@ export default function Create() {
   const isSubmitting = navigation.state === "submitting";
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-black font-sans">
+    <div className="flex flex-col min-h-screen bg-[#fff6dc] text-black font-sans">
       <Header />
       <main className="flex-1 p-6 md:p-12">
         <div className="max-w-4xl mx-auto">
@@ -108,7 +108,7 @@ export default function Create() {
           )}
 
           {!authenticated ? (
-            <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12">
+            <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-[#fff6dc] mt-12 mb-12">
               <h1 className="text-3xl font-bold">Writer Admin Access</h1>
               <p className="text-lg font-medium max-w-lg">
                 Right admin access documentation publishing is restricted. You must sign with your <span className="font-bold">@openrockets.com</span> email.
@@ -121,7 +121,7 @@ export default function Create() {
               </a>
             </div>
           ) : unauthorized ? (
-            <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12">
+            <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-[#fff6dc] mt-12 mb-12">
               <h1 className="text-3xl font-bold">Unauthorized Access</h1>
               <p className="text-lg font-medium max-w-lg">
                 You are currently signed in as <span className="font-bold border-b border-black">{user?.email}</span>.
@@ -133,7 +133,7 @@ export default function Create() {
             <>
               <div className="flex items-center justify-between mb-8">
                 <h1 className="text-3xl font-bold">Create Documentation</h1>
-                <div className="flex items-center gap-3 text-sm font-bold border border-black px-4 py-2 bg-white">
+                <div className="flex items-center gap-3 text-sm font-bold border border-black px-4 py-2 bg-[#fff6dc]">
                   {user?.avatar_url && (
                     <img src={user.avatar_url} alt="Profile" className="w-6 h-6 rounded-full border border-black" />
                   )}
@@ -141,7 +141,7 @@ export default function Create() {
                 </div>
               </div>
 
-              <Form method="post" className="flex flex-col gap-6 bg-white p-6 md:p-8 border border-black">
+              <Form method="post" className="flex flex-col gap-6 bg-[#fff6dc] p-6 md:p-8 border border-black">
                 <div className="flex flex-col">
                   <MaterialInput 
                     type="text" 

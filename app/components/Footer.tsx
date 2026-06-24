@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export function Footer() {
   return (
-    <footer className="bg-white text-black mt-auto w-full">
+    <footer className="bg-[#fff6dc] text-black mt-auto w-full">
       <div className="max-w-4xl mx-auto px-6 py-10 md:px-12 flex flex-col items-start text-left">
         <div className="flex flex-col items-start gap-3 mb-6">
           <img src="https://openrockets.com/v/openrockets.png" alt="OpenRockets Logo" className="w-[120px] invert" />
@@ -19,7 +19,7 @@ export function Footer() {
             <i className="bi bi-twitter-x"></i> Twitter
           </a>
           <a href="https://zeroprofit.org" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
-            <img src="https://substackcdn.com/image/fetch/$s_!YU9o!,w_170,c_limit,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc66b391-ca1e-435a-bca3-c286b6c97085_314x314.png" alt="" className="w-[30px] h-[30px] object-contain" /> ZeroProfit
+            <img src="https://substackcdn.com/image/fetch/$s_!YU9o!,w_170,c_limit,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc66b391-ca1e-435a-bca3-c286b6c97085_314x314.png" alt="" className="w-[30px] h-[30px] object-contain rounded-full" /> ZeroProfit
           </a>
           <Link to="/create" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
             <i className="bi bi-pencil-square"></i> Writer Admin
