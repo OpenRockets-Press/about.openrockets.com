@@ -10,10 +10,15 @@ export async function loader({ request, context }: Route.LoaderArgs) {
   const env = context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {});
   const user = await getSessionUser(request, env);
   
-  if (!user || !user.email.endsWith("@openrockets.com")) {
-    return { authenticated: false };
+  if (!user) {
+    return { authenticated: false, unauthorized: false };
   }
-  return { authenticated: true, user };
+  
+  if (!user.email.endsWith("@openrockets.com")) {
+    return { authenticated: true, unauthorized: true, user };
+  }
+  
+  return { authenticated: true, unauthorized: false, user };
 }
 
 export async function action({ request, context }: Route.ActionArgs) {
@@ -83,15 +88,15 @@ export async function action({ request, context }: Route.ActionArgs) {
 }
 
 export default function Create() {
-  const { authenticated, user } = useLoaderData<typeof loader>();
+  const { authenticated, unauthorized, user } = useLoaderData<typeof loader>();
   const actionData = useActionData<typeof action>();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-white text-black font-sans">
+    <div className="flex flex-col min-h-screen bg-white text-black font-sans">
       <Header />
-      <main className="flex-1 overflow-y-auto p-6 md:p-12">
+      <main className="flex-1 p-6 md:p-12">
         <div className="max-w-4xl mx-auto">
           
           {actionData?.error && (
@@ -101,17 +106,26 @@ export default function Create() {
           )}
 
           {!authenticated ? (
-            <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white">
+            <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12">
               <h1 className="text-3xl font-bold">Writer Admin Access</h1>
               <p className="text-lg font-medium max-w-lg">
                 Documentation publishing is restricted. You must be signed in with your `@openrockets.com` workspace account to create or edit articles.
               </p>
               <a 
                 href={'https://accounts.openrockets.com/login?redirect_uri=' + encodeURIComponent('https://about.openrockets.com/auth/sso-callback?returnTo=/create')}
-                className="bg-black text-white px-8 py-4 font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm"
+                className="bg-black text-white px-8 py-4 font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm inline-block"
               >
                 Sign in with OpenRockets
               </a>
+            </div>
+          ) : unauthorized ? (
+            <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12">
+              <h1 className="text-3xl font-bold">Unauthorized Access</h1>
+              <p className="text-lg font-medium max-w-lg">
+                You are currently signed in as <span className="font-bold border-b border-black">{user?.email}</span>.
+                <br /><br />
+                Only authorized OpenRockets team members with an <span className="font-bold">@openrockets.com</span> email address can create documents on this page.
+              </p>
             </div>
           ) : (
             <>
