@@ -4,7 +4,7 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto flex flex-col items-center text-center">
         <div className="flex flex-col items-center gap-3 mb-6">
           <img src="https://openrockets.com/v/openrockets.png" alt="OpenRockets Logo" className="w-[120px] invert" />
-          <span className="text-xl font-bold tracking-tight font-sans">About OpenRockets</span>
+          <span className="text-xl font-bold tracking-tight font-sans">About, Help & Docs</span>
         </div>
         <div className="flex flex-wrap justify-center gap-8 mb-8">
           <a href="https://discord.gg/djXh8udpbn" className="text-black hover:text-gray-700 transition-colors font-medium">Discord</a>
