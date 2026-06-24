@@ -38,7 +38,7 @@ export default function SearchPage() {
           </h1>
           <p className="text-black font-medium text-lg">
             {q ? (
-              <>Helping you to find<span className="font-semibold text-blue-600">{q}...</span></>
+              <>Helping you to find <span className="font-semibold text-blue-600">{q}...</span></>
             ) : (
               "Please search something!"
             )}
