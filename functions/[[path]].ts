@@ -19,8 +19,7 @@ export const onRequest = async (context) => {
     }
 
     // 2. Fallback to React Router
-    const loadContext = new RouterContextProvider();
-    loadContext.set("cloudflare", { env: context.env, ctx: context.ctx || {} });
+    const loadContext = { cloudflare: { env: context.env, ctx: context.ctx || {} } };
     
     return await handleRequest(context.request, loadContext);
   } catch (error) {

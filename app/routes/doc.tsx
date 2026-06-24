@@ -14,11 +14,10 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export function meta({ data }: Route.MetaArgs) {
-  if (!data?.doc) {
-    return [{ title: "Document Not Found | OpenRockets" }];
-  }
+  const doc = data?.doc || (data?.title ? data : null);
+  const title = doc?.title || "Document Not Found";
   return [
-    { title: `${data.doc.title} | OpenRockets` }
+    { title: `${title} | OpenRockets` }
   ];
 }
 

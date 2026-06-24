@@ -41,7 +41,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// ../.wrangler/tmp/bundle-ucKpjM/checked-fetch.js
+// ../.wrangler/tmp/bundle-PCMCa0/checked-fetch.js
 function checkURL(request, init) {
   const url = request instanceof URL ? request : new URL(
     (typeof request === "string" ? new Request(request, init) : request).url
@@ -59,7 +59,7 @@ function checkURL(request, init) {
 }
 var urls;
 var init_checked_fetch = __esm({
-  "../.wrangler/tmp/bundle-ucKpjM/checked-fetch.js"() {
+  "../.wrangler/tmp/bundle-PCMCa0/checked-fetch.js"() {
     "use strict";
     urls = /* @__PURE__ */ new Set();
     __name(checkURL, "checkURL");
@@ -1261,19 +1261,19 @@ function flattenAndRankRoutes(routes3) {
 }
 function flattenRoutes(routes3, branches = [], parentsMeta = [], parentPath = "", _hasParentOptionalSegments = false) {
   let flattenRoute = /* @__PURE__ */ __name((route, index2, hasParentOptionalSegments = _hasParentOptionalSegments, relativePath) => {
-    let meta = {
+    let meta2 = {
       relativePath: relativePath === void 0 ? route.path || "" : relativePath,
       caseSensitive: route.caseSensitive === true,
       childrenIndex: index2,
       route
     };
-    if (meta.relativePath.startsWith("/")) {
-      if (!meta.relativePath.startsWith(parentPath) && hasParentOptionalSegments) return;
-      invariant(meta.relativePath.startsWith(parentPath), `Absolute route path "${meta.relativePath}" nested under path "${parentPath}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`);
-      meta.relativePath = meta.relativePath.slice(parentPath.length);
+    if (meta2.relativePath.startsWith("/")) {
+      if (!meta2.relativePath.startsWith(parentPath) && hasParentOptionalSegments) return;
+      invariant(meta2.relativePath.startsWith(parentPath), `Absolute route path "${meta2.relativePath}" nested under path "${parentPath}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`);
+      meta2.relativePath = meta2.relativePath.slice(parentPath.length);
     }
-    let path = joinPaths([parentPath, meta.relativePath]);
-    let routesMeta = parentsMeta.concat(meta);
+    let path = joinPaths([parentPath, meta2.relativePath]);
+    let routesMeta = parentsMeta.concat(meta2);
     if (route.children && route.children.length > 0) {
       invariant(route.index !== true, `Index routes must not have child routes. Please remove all child routes from route path "${path}".`);
       flattenRoutes(route.children, branches, routesMeta, path, hasParentOptionalSegments);
@@ -1282,10 +1282,10 @@ function flattenRoutes(routes3, branches = [], parentsMeta = [], parentPath = ""
     branches.push({
       path,
       score: computeScore(path, route.index),
-      routesMeta: routesMeta.map((meta2, i) => {
-        let [matcher, params] = compilePath(meta2.relativePath, meta2.caseSensitive, i === routesMeta.length - 1);
+      routesMeta: routesMeta.map((meta3, i) => {
+        let [matcher, params] = compilePath(meta3.relativePath, meta3.caseSensitive, i === routesMeta.length - 1);
         return {
-          ...meta2,
+          ...meta3,
           matcher,
           compiledParams: params
         };
@@ -1312,7 +1312,7 @@ function explodeOptionalSegments(path) {
   return result.map((exploded) => path.startsWith("/") && exploded === "" ? "/" : exploded);
 }
 function rankRouteBranches(branches) {
-  branches.sort((a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(a.routesMeta.map((meta) => meta.childrenIndex), b.routesMeta.map((meta) => meta.childrenIndex)));
+  branches.sort((a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(a.routesMeta.map((meta2) => meta2.childrenIndex), b.routesMeta.map((meta2) => meta2.childrenIndex)));
 }
 function computeScore(path, index2) {
   let segments = path.split("/");
@@ -1330,19 +1330,19 @@ function matchRouteBranch(branch, pathname, allowPartial = false) {
   let matchedPathname = "/";
   let matches = [];
   for (let i = 0; i < routesMeta.length; ++i) {
-    let meta = routesMeta[i];
+    let meta2 = routesMeta[i];
     let end = i === routesMeta.length - 1;
     let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
     let pattern2 = {
-      path: meta.relativePath,
-      caseSensitive: meta.caseSensitive,
+      path: meta2.relativePath,
+      caseSensitive: meta2.caseSensitive,
       end
     };
-    let match2 = meta.matcher && meta.compiledParams ? matchPathImpl(pattern2, remainingPathname, meta.matcher, meta.compiledParams) : matchPath(pattern2, remainingPathname);
-    let route = meta.route;
+    let match2 = meta2.matcher && meta2.compiledParams ? matchPathImpl(pattern2, remainingPathname, meta2.matcher, meta2.compiledParams) : matchPath(pattern2, remainingPathname);
+    let route = meta2.route;
     if (!match2 && end && allowPartial && !routesMeta[routesMeta.length - 1].route.index) match2 = matchPath({
-      path: meta.relativePath,
-      caseSensitive: meta.caseSensitive,
+      path: meta2.relativePath,
+      caseSensitive: meta2.caseSensitive,
       end: false
     }, remainingPathname);
     if (!match2) return null;
@@ -4896,7 +4896,7 @@ function Meta() {
   let _matches = getActiveMatches(routerMatches, errors, isSpaMode2);
   let error = null;
   if (errors) error = errors[_matches[_matches.length - 1].route.id];
-  let meta = [];
+  let meta2 = [];
   let leafMeta = null;
   let matches = [];
   for (let i = 0; i < _matches.length; i++) {
@@ -4928,10 +4928,10 @@ function Meta() {
     if (!Array.isArray(routeMeta)) throw new Error("The route at " + _match.route.path + " returns an invalid value. All route meta functions must return an array of meta objects.\n\nTo reference the meta function API, see https://reactrouter.com/start/framework/route-module#meta");
     match2.meta = routeMeta;
     matches[i] = match2;
-    meta = [...routeMeta];
-    leafMeta = meta;
+    meta2 = [...routeMeta];
+    leafMeta = meta2;
   }
-  return /* @__PURE__ */ React$19.createElement(React$19.Fragment, null, meta.flat().map((metaProps) => {
+  return /* @__PURE__ */ React$19.createElement(React$19.Fragment, null, meta2.flat().map((metaProps) => {
     if (!metaProps) return null;
     if ("tagName" in metaProps) {
       let { tagName, ...rest } = metaProps;
@@ -22934,21 +22934,6 @@ var init_file_text = __esm({
   }
 });
 
-// ../node_modules/lucide-react/dist/esm/icons/search.mjs
-var __iconNode3, Search;
-var init_search = __esm({
-  "../node_modules/lucide-react/dist/esm/icons/search.mjs"() {
-    init_functionsRoutes_0_36556902405725844();
-    init_checked_fetch();
-    init_createLucideIcon();
-    __iconNode3 = [
-      ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
-      ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
-    ];
-    Search = createLucideIcon("search", __iconNode3);
-  }
-});
-
 // ../node_modules/lucide-react/dist/esm/lucide-react.mjs
 var init_lucide_react = __esm({
   "../node_modules/lucide-react/dist/esm/lucide-react.mjs"() {
@@ -22957,7 +22942,6 @@ var init_lucide_react = __esm({
     init_checked_fetch();
     init_chevron_right();
     init_file_text();
-    init_search();
   }
 });
 
@@ -28779,10 +28763,10 @@ function tokenizeCodeFenced(effects, ok3, nok) {
     effects.enter("chunkString", {
       contentType: "string"
     });
-    return meta(code2);
+    return meta2(code2);
   }
   __name(metaBefore, "metaBefore");
-  function meta(code2) {
+  function meta2(code2) {
     if (code2 === null || markdownLineEnding(code2)) {
       effects.exit("chunkString");
       effects.exit("codeFencedFenceMeta");
@@ -28792,9 +28776,9 @@ function tokenizeCodeFenced(effects, ok3, nok) {
       return nok(code2);
     }
     effects.consume(code2);
-    return meta;
+    return meta2;
   }
-  __name(meta, "meta");
+  __name(meta2, "meta");
   function atNonLazyBreak(code2) {
     return effects.attempt(closeStart, after, contentBefore)(code2);
   }
@@ -37197,15 +37181,24 @@ async function getSessionUser(request, env2) {
   }
 }
 async function loader$4({ request, context }) {
-  const user = await getSessionUser(request, context.cloudflare?.env || process.env);
-  if (!user || !user.email.endsWith("@openrockets.com")) return { authenticated: false };
+  const user = await getSessionUser(request, context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {}));
+  if (!user) return {
+    authenticated: false,
+    unauthorized: false
+  };
+  if (!user.email.endsWith("@openrockets.com")) return {
+    authenticated: true,
+    unauthorized: true,
+    user
+  };
   return {
     authenticated: true,
+    unauthorized: false,
     user
   };
 }
 async function action({ request, context }) {
-  const env2 = context.cloudflare?.env || process.env;
+  const env2 = context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {});
   const user = await getSessionUser(request, env2);
   if (!user || !user.email.endsWith("@openrockets.com")) return { error: "Access denied: Only @openrockets.com authenticated users are allowed." };
   const formData = await request.formData();
@@ -37266,7 +37259,7 @@ async function loader$2({ request, context }) {
   let returnTo = url.searchParams.get("returnTo");
   if (!returnTo || !returnTo.startsWith("/")) returnTo = "/create";
   if (!token) return redirect(returnTo);
-  const env2 = context.cloudflare?.env || process.env;
+  const env2 = context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {});
   try {
     const response = await fetch("https://openrocketsauth.alwaysdata.net/api/auth/me", { headers: {
       Authorization: `Bearer ${token}`,
@@ -37306,7 +37299,7 @@ function Sidebar({ categories }) {
     }) : null, categories.map((category) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
       className: "mb-8 mr-6 md:mr-0 inline-block md:block align-top",
       children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-        className: "text-[13px] font-bold text-black mx-6 mb-3 tracking-wide",
+        className: "text-[13px] font-bold text-black mx-6 mb-3 tracking-wide capitalize",
         children: category.name.replace(/-/g, " ")
       }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
         className: "flex md:flex-col flex-row",
@@ -37341,7 +37334,11 @@ async function loader({ params }) {
   if (!doc) throw new Response("Not Found", { status: 404 });
   return { doc };
 }
-var import_server4, import_jsx_runtime2, import_react6, __defProp2, __exportAll, entry_server_exports, streamTimeout, root_exports, links, root_default, ErrorBoundary, home_exports, home_default, COOKIE_NAME, create_exports, create_default, search_exports, search_default, auth_sso_callback_exports, docs_layout_exports, docs_layout_default, doc_exports, doc_default, server_manifest_default, assetsBuildDirectory, basename2, future, ssr, isSpaMode, prerender, routeDiscovery, publicPath, entry, routes2, allowedActionOrigins;
+function meta({ data: data2 }) {
+  if (!data2?.doc) return [{ title: "Document Not Found | OpenRockets" }];
+  return [{ title: `${data2.doc.title} | OpenRockets` }];
+}
+var import_server4, import_jsx_runtime2, import_react6, __defProp2, __exportAll, entry_server_exports, streamTimeout, root_exports, meta$1, links, root_default, ErrorBoundary, home_exports, home_default, COOKIE_NAME, create_exports, create_default, search_exports, search_default, auth_sso_callback_exports, docs_layout_exports, docs_layout_default, doc_exports, doc_default, server_manifest_default, assetsBuildDirectory, basename2, future, ssr, isSpaMode, prerender, routeDiscovery, publicPath, entry, routes2, allowedActionOrigins;
 var init_server4 = __esm({
   "../build/server/index.js"() {
     "use strict";
@@ -37374,9 +37371,21 @@ var init_server4 = __esm({
       ErrorBoundary: /* @__PURE__ */ __name(() => ErrorBoundary, "ErrorBoundary"),
       Layout: /* @__PURE__ */ __name(() => Layout, "Layout"),
       default: /* @__PURE__ */ __name(() => root_default, "default"),
-      links: /* @__PURE__ */ __name(() => links, "links")
+      links: /* @__PURE__ */ __name(() => links, "links"),
+      meta: /* @__PURE__ */ __name(() => meta$1, "meta")
     });
+    meta$1 = /* @__PURE__ */ __name(() => {
+      return [{ title: "About, Help & Docs | OpenRockets" }, {
+        name: "description",
+        content: "Documentation and help for OpenRockets"
+      }];
+    }, "meta$1");
     links = /* @__PURE__ */ __name(() => [
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/favicon.png"
+      },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com"
@@ -37440,15 +37449,15 @@ var init_server4 = __esm({
     __name(loader$4, "loader$4");
     __name(action, "action");
     create_default = withComponentProps(/* @__PURE__ */ __name(function Create() {
-      const { authenticated, user } = useLoaderData();
+      const { authenticated, unauthorized, user } = useLoaderData();
       const actionData = useActionData();
       const isSubmitting = useNavigation().state === "submitting";
       return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-        className: "flex flex-col h-screen overflow-hidden bg-white text-black font-sans",
+        className: "flex flex-col min-h-screen bg-white text-black font-sans",
         children: [
           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Header, {}),
           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("main", {
-            className: "flex-1 overflow-y-auto p-6 md:p-12",
+            className: "flex-1 p-6 md:p-12",
             children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
               className: "max-w-4xl mx-auto",
               children: [actionData?.error && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
@@ -37462,7 +37471,7 @@ var init_server4 = __esm({
                   actionData.error
                 ]
               }), !authenticated ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-                className: "flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white",
+                className: "flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12",
                 children: [
                   /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
                     className: "text-3xl font-bold",
@@ -37474,10 +37483,34 @@ var init_server4 = __esm({
                   }),
                   /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", {
                     href: "https://accounts.openrockets.com/login?redirect_uri=" + encodeURIComponent("https://about.openrockets.com/auth/sso-callback?returnTo=/create"),
-                    className: "bg-black text-white px-8 py-4 font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm",
+                    className: "bg-black text-white px-8 py-4 font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm inline-block",
                     children: "Sign in with OpenRockets"
                   })
                 ]
+              }) : unauthorized ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                className: "flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12",
+                children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
+                  className: "text-3xl font-bold",
+                  children: "Unauthorized Access"
+                }), /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", {
+                  className: "text-lg font-medium max-w-lg",
+                  children: [
+                    "You are currently signed in as ",
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
+                      className: "font-bold border-b border-black",
+                      children: user?.email
+                    }),
+                    ".",
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
+                    "Only authorized OpenRockets team members with an ",
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
+                      className: "font-bold",
+                      children: "@openrockets.com"
+                    }),
+                    " email address can create documents on this page."
+                  ]
+                })]
               }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
                 className: "flex items-center justify-between mb-8",
                 children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
@@ -37541,7 +37574,7 @@ var init_server4 = __esm({
     search_default = withComponentProps(/* @__PURE__ */ __name(function SearchPage() {
       const { q, results } = useLoaderData();
       return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-        className: "min-h-screen flex flex-col bg-gray-50",
+        className: "min-h-screen flex flex-col bg-white text-black font-sans",
         children: [
           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Header, {}),
           /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("main", {
@@ -37550,10 +37583,10 @@ var init_server4 = __esm({
               /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
                 className: "mb-10",
                 children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
-                  className: "text-3xl font-bold text-gray-900 mb-4",
+                  className: "text-3xl font-bold text-black mb-4",
                   children: "Search Results"
                 }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", {
-                  className: "text-gray-600 text-lg",
+                  className: "text-black font-medium text-lg",
                   children: q ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: ["Showing results for ", /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", {
                     className: "font-semibold text-blue-600",
                     children: [
@@ -37565,21 +37598,15 @@ var init_server4 = __esm({
                 })]
               }),
               q && results.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-                className: "bg-white p-12 rounded-xl shadow-sm border border-gray-100 text-center flex flex-col items-center justify-center",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-                    className: "w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Search, { className: "text-gray-400 w-8 h-8" })
-                  }),
-                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", {
-                    className: "text-xl font-bold text-gray-900 mb-2",
-                    children: "No results found"
-                  }),
-                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", {
-                    className: "text-gray-500 max-w-md",
-                    children: "We couldn't find any documentation matching your search query. Try using different keywords or checking for typos."
-                  })
-                ]
+                className: "text-center flex flex-col items-center justify-center mt-12 mb-12",
+                children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", {
+                  src: "https://cdna.artstation.com/p/assets/images/images/067/012/126/original/ester-auroora-from-otter-animation-sketch.gif",
+                  alt: "No results found",
+                  className: "w-[150px] md:w-[200px] h-auto mb-6 object-contain"
+                }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", {
+                  className: "text-2xl font-bold text-black mb-2 tracking-tight",
+                  children: "No results found"
+                })]
               }),
               results.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
                 className: "space-y-4",
@@ -37593,12 +37620,12 @@ var init_server4 = __esm({
                   ]
                 }), results.map((doc, idx) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Link, {
                   to: `/docs/${doc.category}/${doc.slug}`,
-                  className: "group block bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-200 transition-all",
+                  className: "group block bg-white p-6 shadow-sm border border-black hover:bg-black/5 transition-all",
                   children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
                     className: "flex items-start gap-4",
                     children: [
                       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-                        className: "w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors",
+                        className: "w-10 h-10 bg-black text-white flex items-center justify-center shrink-0",
                         children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(FileText, { size: 20 })
                       }),
                       /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
@@ -37612,17 +37639,17 @@ var init_server4 = __esm({
                             })
                           }),
                           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h3", {
-                            className: "text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors",
+                            className: "text-lg font-bold text-black mb-2 group-hover:underline",
                             children: doc.title
                           }),
                           /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", {
-                            className: "text-gray-500 text-sm line-clamp-2",
+                            className: "text-black text-sm line-clamp-2",
                             children: [doc.content.replace(/#.*$/gm, "").replace(/\[.*?\]/g, "").replace(/[*_~`]/g, "").trim().substring(0, 150), "..."]
                           })
                         ]
                       }),
                       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-                        className: "hidden sm:flex items-center self-center shrink-0 text-gray-300 group-hover:text-blue-500 transition-colors pl-4",
+                        className: "hidden sm:flex items-center self-center shrink-0 text-black pl-4",
                         children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(ChevronRight, { size: 24 })
                       })
                     ]
@@ -37661,9 +37688,11 @@ var init_server4 = __esm({
     }, "DocsLayout"));
     doc_exports = /* @__PURE__ */ __exportAll({
       default: /* @__PURE__ */ __name(() => doc_default, "default"),
-      loader: /* @__PURE__ */ __name(() => loader, "loader")
+      loader: /* @__PURE__ */ __name(() => loader, "loader"),
+      meta: /* @__PURE__ */ __name(() => meta, "meta")
     });
     __name(loader, "loader");
+    __name(meta, "meta");
     doc_default = withComponentProps(/* @__PURE__ */ __name(function DocRoute() {
       const { doc } = useLoaderData();
       return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("article", {
@@ -37695,14 +37724,14 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": true,
-          "module": "/assets/root-B6PxI-0n.js",
+          "module": "/assets/root-Dem4H-lA.js",
           "imports": [
             "/assets/components-BTTkrXdt.js",
             "/assets/components-DRsIKch7.js",
             "/assets/jsx-runtime-CS_A_yFI.js",
             "/assets/lib-DnNTIa7K.js"
           ],
-          "css": ["/assets/root-SsBHbpkK.css"],
+          "css": ["/assets/root-DA-nYBIZ.css"],
           "clientActionModule": void 0,
           "clientLoaderModule": void 0,
           "clientMiddlewareModule": void 0,
@@ -37742,7 +37771,7 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": false,
-          "module": "/assets/create-CLvCguDD.js",
+          "module": "/assets/create-Cu3TiaQH.js",
           "imports": [
             "/assets/components-BTTkrXdt.js",
             "/assets/lib-DnNTIa7K.js",
@@ -37769,7 +37798,7 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": false,
-          "module": "/assets/search-CPX_HVuV.js",
+          "module": "/assets/search-BgAEWBN7.js",
           "imports": [
             "/assets/components-BTTkrXdt.js",
             "/assets/lib-DnNTIa7K.js",
@@ -37817,7 +37846,7 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": false,
-          "module": "/assets/docs-layout-emZ5EyGh.js",
+          "module": "/assets/docs-layout-DPgAEuhI.js",
           "imports": [
             "/assets/components-BTTkrXdt.js",
             "/assets/lib-DnNTIa7K.js",
@@ -37844,7 +37873,7 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": false,
-          "module": "/assets/doc-hRsS5e21.js",
+          "module": "/assets/doc-BFX0ANAn.js",
           "imports": ["/assets/components-BTTkrXdt.js", "/assets/jsx-runtime-CS_A_yFI.js"],
           "css": [],
           "clientActionModule": void 0,
@@ -37853,8 +37882,8 @@ var init_server4 = __esm({
           "hydrateFallbackModule": void 0
         }
       },
-      "url": "/assets/manifest-b866bc8c.js",
-      "version": "b866bc8c",
+      "url": "/assets/manifest-80d662b0.js",
+      "version": "80d662b0",
       "sri": void 0
     };
     assetsBuildDirectory = "build\\client";
@@ -37951,8 +37980,7 @@ var init_path = __esm({
           }
         } catch (e) {
         }
-        const loadContext = new RouterContextProvider();
-        loadContext.set("cloudflare", { env: context.env, ctx: context.ctx || {} });
+        const loadContext = { cloudflare: { env: context.env, ctx: context.ctx || {} } };
         return await handleRequest2(context.request, loadContext);
       } catch (error) {
         console.error("Worker Crash:", error);
@@ -37980,11 +38008,11 @@ var init_functionsRoutes_0_36556902405725844 = __esm({
   }
 });
 
-// ../.wrangler/tmp/bundle-ucKpjM/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-PCMCa0/middleware-loader.entry.ts
 init_functionsRoutes_0_36556902405725844();
 init_checked_fetch();
 
-// ../.wrangler/tmp/bundle-ucKpjM/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-PCMCa0/middleware-insertion-facade.js
 init_functionsRoutes_0_36556902405725844();
 init_checked_fetch();
 
@@ -38485,7 +38513,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env2, _ctx, middlewareCtx
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-ucKpjM/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-PCMCa0/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -38519,7 +38547,7 @@ function __facade_invoke__(request, env2, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-ucKpjM/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-PCMCa0/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
@@ -38743,7 +38771,6 @@ lucide-react/dist/esm/Icon.mjs:
 lucide-react/dist/esm/createLucideIcon.mjs:
 lucide-react/dist/esm/icons/chevron-right.mjs:
 lucide-react/dist/esm/icons/file-text.mjs:
-lucide-react/dist/esm/icons/search.mjs:
 lucide-react/dist/esm/lucide-react.mjs:
   (**
    * @license lucide-react v1.21.0 - ISC

@@ -88,7 +88,7 @@ function checkURL2(request, init) {
 __name(checkURL2, "checkURL");
 var urls2;
 var init_checked_fetch = __esm({
-  "../.wrangler/tmp/bundle-dmhLES/checked-fetch.js"() {
+  "../.wrangler/tmp/bundle-Ed9F7X/checked-fetch.js"() {
     "use strict";
     urls2 = /* @__PURE__ */ new Set();
     __name2(checkURL2, "checkURL");
@@ -1332,19 +1332,19 @@ function flattenAndRankRoutes(routes3) {
 __name(flattenAndRankRoutes, "flattenAndRankRoutes");
 function flattenRoutes(routes3, branches = [], parentsMeta = [], parentPath = "", _hasParentOptionalSegments = false) {
   let flattenRoute = /* @__PURE__ */ __name2((route, index2, hasParentOptionalSegments = _hasParentOptionalSegments, relativePath) => {
-    let meta = {
+    let meta2 = {
       relativePath: relativePath === void 0 ? route.path || "" : relativePath,
       caseSensitive: route.caseSensitive === true,
       childrenIndex: index2,
       route
     };
-    if (meta.relativePath.startsWith("/")) {
-      if (!meta.relativePath.startsWith(parentPath) && hasParentOptionalSegments) return;
-      invariant(meta.relativePath.startsWith(parentPath), `Absolute route path "${meta.relativePath}" nested under path "${parentPath}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`);
-      meta.relativePath = meta.relativePath.slice(parentPath.length);
+    if (meta2.relativePath.startsWith("/")) {
+      if (!meta2.relativePath.startsWith(parentPath) && hasParentOptionalSegments) return;
+      invariant(meta2.relativePath.startsWith(parentPath), `Absolute route path "${meta2.relativePath}" nested under path "${parentPath}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`);
+      meta2.relativePath = meta2.relativePath.slice(parentPath.length);
     }
-    let path = joinPaths([parentPath, meta.relativePath]);
-    let routesMeta = parentsMeta.concat(meta);
+    let path = joinPaths([parentPath, meta2.relativePath]);
+    let routesMeta = parentsMeta.concat(meta2);
     if (route.children && route.children.length > 0) {
       invariant(route.index !== true, `Index routes must not have child routes. Please remove all child routes from route path "${path}".`);
       flattenRoutes(route.children, branches, routesMeta, path, hasParentOptionalSegments);
@@ -1353,10 +1353,10 @@ function flattenRoutes(routes3, branches = [], parentsMeta = [], parentPath = ""
     branches.push({
       path,
       score: computeScore(path, route.index),
-      routesMeta: routesMeta.map((meta2, i) => {
-        let [matcher, params] = compilePath(meta2.relativePath, meta2.caseSensitive, i === routesMeta.length - 1);
+      routesMeta: routesMeta.map((meta3, i) => {
+        let [matcher, params] = compilePath(meta3.relativePath, meta3.caseSensitive, i === routesMeta.length - 1);
         return {
-          ...meta2,
+          ...meta3,
           matcher,
           compiledParams: params
         };
@@ -1385,7 +1385,7 @@ function explodeOptionalSegments(path) {
 }
 __name(explodeOptionalSegments, "explodeOptionalSegments");
 function rankRouteBranches(branches) {
-  branches.sort((a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(a.routesMeta.map((meta) => meta.childrenIndex), b.routesMeta.map((meta) => meta.childrenIndex)));
+  branches.sort((a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(a.routesMeta.map((meta2) => meta2.childrenIndex), b.routesMeta.map((meta2) => meta2.childrenIndex)));
 }
 __name(rankRouteBranches, "rankRouteBranches");
 function computeScore(path, index2) {
@@ -1406,19 +1406,19 @@ function matchRouteBranch(branch, pathname, allowPartial = false) {
   let matchedPathname = "/";
   let matches = [];
   for (let i = 0; i < routesMeta.length; ++i) {
-    let meta = routesMeta[i];
+    let meta2 = routesMeta[i];
     let end = i === routesMeta.length - 1;
     let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
     let pattern2 = {
-      path: meta.relativePath,
-      caseSensitive: meta.caseSensitive,
+      path: meta2.relativePath,
+      caseSensitive: meta2.caseSensitive,
       end
     };
-    let match2 = meta.matcher && meta.compiledParams ? matchPathImpl(pattern2, remainingPathname, meta.matcher, meta.compiledParams) : matchPath(pattern2, remainingPathname);
-    let route = meta.route;
+    let match2 = meta2.matcher && meta2.compiledParams ? matchPathImpl(pattern2, remainingPathname, meta2.matcher, meta2.compiledParams) : matchPath(pattern2, remainingPathname);
+    let route = meta2.route;
     if (!match2 && end && allowPartial && !routesMeta[routesMeta.length - 1].route.index) match2 = matchPath({
-      path: meta.relativePath,
-      caseSensitive: meta.caseSensitive,
+      path: meta2.relativePath,
+      caseSensitive: meta2.caseSensitive,
       end: false
     }, remainingPathname);
     if (!match2) return null;
@@ -5171,7 +5171,7 @@ function Meta() {
   let _matches = getActiveMatches(routerMatches, errors, isSpaMode2);
   let error = null;
   if (errors) error = errors[_matches[_matches.length - 1].route.id];
-  let meta = [];
+  let meta2 = [];
   let leafMeta = null;
   let matches = [];
   for (let i = 0; i < _matches.length; i++) {
@@ -5203,10 +5203,10 @@ function Meta() {
     if (!Array.isArray(routeMeta)) throw new Error("The route at " + _match.route.path + " returns an invalid value. All route meta functions must return an array of meta objects.\n\nTo reference the meta function API, see https://reactrouter.com/start/framework/route-module#meta");
     match2.meta = routeMeta;
     matches[i] = match2;
-    meta = [...routeMeta];
-    leafMeta = meta;
+    meta2 = [...routeMeta];
+    leafMeta = meta2;
   }
-  return /* @__PURE__ */ React$19.createElement(React$19.Fragment, null, meta.flat().map((metaProps) => {
+  return /* @__PURE__ */ React$19.createElement(React$19.Fragment, null, meta2.flat().map((metaProps) => {
     if (!metaProps) return null;
     if ("tagName" in metaProps) {
       let { tagName, ...rest } = metaProps;
@@ -23607,17 +23607,37 @@ var init_createLucideIcon = __esm({
   }
 });
 var __iconNode;
-var Search;
-var init_search = __esm({
-  "../node_modules/lucide-react/dist/esm/icons/search.mjs"() {
+var ChevronRight;
+var init_chevron_right = __esm({
+  "../node_modules/lucide-react/dist/esm/icons/chevron-right.mjs"() {
     init_functionsRoutes_0_5872123854842681();
     init_checked_fetch();
     init_createLucideIcon();
-    __iconNode = [
-      ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
-      ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
+    __iconNode = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+    ChevronRight = createLucideIcon("chevron-right", __iconNode);
+  }
+});
+var __iconNode2;
+var FileText;
+var init_file_text = __esm({
+  "../node_modules/lucide-react/dist/esm/icons/file-text.mjs"() {
+    init_functionsRoutes_0_5872123854842681();
+    init_checked_fetch();
+    init_createLucideIcon();
+    __iconNode2 = [
+      [
+        "path",
+        {
+          d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+          key: "1oefj6"
+        }
+      ],
+      ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }],
+      ["path", { d: "M10 9H8", key: "b1mrlr" }],
+      ["path", { d: "M16 13H8", key: "t4e002" }],
+      ["path", { d: "M16 17H8", key: "z1uh3a" }]
     ];
-    Search = createLucideIcon("search", __iconNode);
+    FileText = createLucideIcon("file-text", __iconNode2);
   }
 });
 var init_lucide_react = __esm({
@@ -23625,7 +23645,8 @@ var init_lucide_react = __esm({
     "use strict";
     init_functionsRoutes_0_5872123854842681();
     init_checked_fetch();
-    init_search();
+    init_chevron_right();
+    init_file_text();
   }
 });
 function ok() {
@@ -29508,11 +29529,11 @@ function tokenizeCodeFenced(effects, ok3, nok) {
     effects.enter("chunkString", {
       contentType: "string"
     });
-    return meta(code2);
+    return meta2(code2);
   }
   __name(metaBefore, "metaBefore");
   __name2(metaBefore, "metaBefore");
-  function meta(code2) {
+  function meta2(code2) {
     if (code2 === null || markdownLineEnding(code2)) {
       effects.exit("chunkString");
       effects.exit("codeFencedFenceMeta");
@@ -29522,10 +29543,10 @@ function tokenizeCodeFenced(effects, ok3, nok) {
       return nok(code2);
     }
     effects.consume(code2);
-    return meta;
+    return meta2;
   }
-  __name(meta, "meta");
-  __name2(meta, "meta");
+  __name(meta2, "meta2");
+  __name2(meta2, "meta");
   function atNonLazyBreak(code2) {
     return effects.attempt(closeStart, after, contentBefore)(code2);
   }
@@ -38047,7 +38068,7 @@ async function getDocBySlug(category, slug) {
   return (await getAllDocs()).find((d) => d.category === category && d.slug === slug) || null;
 }
 __name(getDocBySlug, "getDocBySlug");
-async function loader$2() {
+async function loader$5() {
   const docs2 = await getAllDocs();
   if (docs2.length > 0) {
     const firstDoc = docs2[0];
@@ -38055,16 +38076,63 @@ async function loader$2() {
   }
   return redirect("/docs/openrockets-press/introduction");
 }
-__name(loader$2, "loader$2");
+__name(loader$5, "loader$5");
+function MaterialInput({ label, multiline, className = "", ...props }) {
+  const [focused, setFocused] = (0, import_react6.useState)(false);
+  const [hasValue, setHasValue] = (0, import_react6.useState)(Boolean(props.value || props.defaultValue));
+  const handleFocus = /* @__PURE__ */ __name2((e) => {
+    setFocused(true);
+    if (props.onFocus) props.onFocus(e);
+  }, "handleFocus");
+  const handleBlur = /* @__PURE__ */ __name2((e) => {
+    setFocused(false);
+    setHasValue(Boolean(e.target.value));
+    if (props.onBlur) props.onBlur(e);
+  }, "handleBlur");
+  const handleChange = /* @__PURE__ */ __name2((e) => {
+    setHasValue(Boolean(e.target.value));
+    if (props.onChange) props.onChange(e);
+  }, "handleChange");
+  const isFloating = focused || hasValue;
+  const containerClasses = `relative border border-black bg-white rounded-md transition-shadow ${focused ? "ring-1 ring-black" : ""} ${className}`;
+  const labelClasses = `absolute left-3 transition-all duration-200 pointer-events-none ${isFloating ? "-top-2.5 text-xs bg-white px-1 font-bold text-black" : "top-3 text-base text-gray-500 font-medium"}`;
+  if (multiline) return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+    className: containerClasses,
+    children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", {
+      className: labelClasses,
+      children: label
+    }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", {
+      ...props,
+      onFocus: handleFocus,
+      onBlur: handleBlur,
+      onChange: handleChange,
+      className: "w-full px-3 py-3 outline-none bg-transparent min-h-[200px] resize-y text-black font-sans"
+    })]
+  });
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+    className: containerClasses,
+    children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", {
+      className: labelClasses,
+      children: label
+    }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", {
+      ...props,
+      onFocus: handleFocus,
+      onBlur: handleBlur,
+      onChange: handleChange,
+      className: "w-full px-3 py-3 outline-none bg-transparent text-black font-sans"
+    })]
+  });
+}
+__name(MaterialInput, "MaterialInput");
 function Header() {
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("header", {
-    className: "min-h-[70px] bg-white border-b border-gray-200 flex flex-wrap items-center justify-between px-6 shrink-0",
+    className: "min-h-[70px] bg-white border-b border-black flex flex-wrap items-center justify-between px-6 shrink-0",
     children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
         className: "flex items-center gap-4 py-4 md:py-0 w-full md:w-auto",
         children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Link, {
           to: "/",
-          className: "text-3xl md:text-5xl font-extrabold tracking-tighter text-gray-900 hover:text-blue-600 transition-colors",
+          className: "text-3xl md:text-5xl font-medium tracking-tight text-black hover:opacity-70 transition-opacity",
           children: "About, Help & Docs"
         })
       }),
@@ -38073,17 +38141,16 @@ function Header() {
         children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(Form, {
           action: "/search",
           method: "get",
-          className: "flex w-full max-w-lg shadow-sm",
-          children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", {
-            type: "text",
+          className: "flex w-full max-w-lg",
+          children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)(MaterialInput, {
             name: "q",
-            placeholder: "Search documentation...",
+            label: "Search documentation...",
             required: true,
-            className: "flex-1 px-4 py-2 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 focus:bg-white focus:border-blue-500 outline-none transition-all text-sm"
-          }), /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("button", {
+            className: "flex-1 rounded-r-none"
+          }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", {
             type: "submit",
-            className: "px-5 py-2 bg-gray-50 border border-gray-300 rounded-r-md text-gray-600 font-semibold hover:bg-gray-100 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm",
-            children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Search, { size: 16 }), "Search"]
+            className: "px-5 py-2 bg-black border border-black border-l-0 rounded-r-md text-white font-bold hover:opacity-80 transition-opacity flex items-center gap-2 text-sm",
+            children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-search text-base" })
           })]
         })
       }),
@@ -38091,11 +38158,11 @@ function Header() {
         className: "flex items-center gap-4 md:gap-6 order-2 md:order-3 w-full md:w-auto justify-between md:justify-end pb-4 md:pb-0",
         children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("a", {
           href: "https://zeroprofit.org",
-          className: "text-gray-600 font-medium hover:text-gray-900 flex items-center gap-2 text-sm md:text-base",
-          children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-patch-check-fill text-blue-500 text-lg" }), "Register your NonProfit"]
+          className: "text-black font-bold hover:opacity-70 flex items-center gap-2 text-sm md:text-base",
+          children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-patch-check-fill text-lg" }), "Register your NonProfit"]
         }), /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("a", {
           href: "https://discord.gg/djXh8udpbn",
-          className: "bg-[#5865F2] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#4752C4] transition-colors flex items-center gap-2 text-sm md:text-base shadow-sm",
+          className: "bg-black text-white px-4 py-2 rounded-md font-bold hover:opacity-80 transition-opacity flex items-center gap-2 text-sm md:text-base",
           children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-discord text-lg" }), "Discord"]
         })]
       })
@@ -38103,73 +38170,55 @@ function Header() {
   });
 }
 __name(Header, "Header");
-function Sidebar({ categories }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("aside", {
-    className: "w-full md:w-[280px] bg-gray-50 border-r border-gray-200 py-6 shrink-0 overflow-y-auto flex md:flex-col flex-row overflow-x-auto whitespace-nowrap scrollbar-hide",
-    children: [categories.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-      className: "text-gray-400 text-sm px-6",
-      children: "No documentation found."
-    }) : null, categories.map((category) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-      className: "mb-8 mr-6 md:mr-0 inline-block md:block align-top",
-      children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-        className: "text-[11px] uppercase font-bold text-gray-500 mx-6 mb-3 tracking-wider",
-        children: category.name.replace(/-/g, " ")
-      }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-        className: "flex md:flex-col flex-row",
-        children: category.files.map((file) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(NavLink, {
-          to: `/docs/${category.name}/${file.slug}`,
-          className: /* @__PURE__ */ __name2(({ isActive }) => `block px-6 py-2 text-[15px] font-medium transition-colors ${isActive ? "bg-blue-500/10 text-blue-700 md:border-l-4 border-b-4 md:border-b-0 border-blue-600" : "text-gray-600 hover:bg-black/5 hover:text-gray-900 border-l-4 border-transparent md:border-b-0 border-b-4"}`, "className"),
-          children: file.title
-        }, file.slug))
-      })]
-    }, category.name))]
-  });
-}
-__name(Sidebar, "Sidebar");
 function Footer() {
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("footer", {
-    className: "bg-[#1a1a1a] text-white px-6 py-10 mt-auto w-full",
+    className: "bg-white text-black mt-auto w-full border-t border-black",
     children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-      className: "max-w-[1200px] mx-auto flex flex-col items-center text-center",
+      className: "max-w-4xl mx-auto px-6 py-10 md:px-12 flex flex-col items-start text-left",
       children: [
         /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-          className: "flex flex-col items-center gap-3 mb-6",
+          className: "flex flex-col items-start gap-3 mb-6",
           children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", {
             src: "https://openrockets.com/v/openrockets.png",
             alt: "OpenRockets Logo",
-            className: "h-[40px] invert"
+            className: "w-[120px] invert"
           }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
             className: "text-xl font-bold tracking-tight font-sans",
-            children: "About OpenRockets"
+            children: "About, Help & Docs"
           })]
         }),
         /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-          className: "flex flex-wrap justify-center gap-8 mb-8",
+          className: "flex flex-col md:flex-row flex-wrap justify-start gap-6 md:gap-8 mb-8 w-full",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", {
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("a", {
               href: "https://discord.gg/djXh8udpbn",
-              className: "text-[#a3a3a3] hover:text-white transition-colors font-medium",
-              children: "Discord"
+              className: "text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2",
+              children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-discord" }), " Discord"]
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", {
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("a", {
               href: "https://linkedin.com/company/openrocketsinc",
-              className: "text-[#a3a3a3] hover:text-white transition-colors font-medium",
-              children: "LinkedIn"
+              className: "text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2",
+              children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-linkedin" }), " LinkedIn"]
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", {
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("a", {
               href: "https://x.com/openrockets",
-              className: "text-[#a3a3a3] hover:text-white transition-colors font-medium",
-              children: "Twitter"
+              className: "text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2",
+              children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-twitter-x" }), " Twitter"]
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", {
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("a", {
               href: "https://zeroprofit.org",
-              className: "text-[#a3a3a3] hover:text-white transition-colors font-medium",
-              children: "ZeroProfit"
+              className: "text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2",
+              children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-patch-check-fill" }), " ZeroProfit"]
+            }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(Link, {
+              to: "/create",
+              className: "text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2",
+              children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("i", { className: "bi bi-pencil-square" }), " Writer Admin"]
             })
           ]
         }),
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-          className: "border-t border-gray-800 pt-6 w-full text-gray-400 text-sm",
+          className: "pt-6 w-full text-black text-sm font-medium",
           children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { children: "\xA9 & (TM) 2022-2026 OpenRockets Incorporated. All Rights Reserved." })
         })
       ]
@@ -38177,6 +38226,192 @@ function Footer() {
   });
 }
 __name(Footer, "Footer");
+async function deriveKey(secret) {
+  const raw = new TextEncoder().encode(secret);
+  return crypto.subtle.importKey("raw", raw, {
+    name: "HMAC",
+    hash: "SHA-256"
+  }, false, ["sign", "verify"]);
+}
+__name(deriveKey, "deriveKey");
+async function sign(payload, secret) {
+  const key = await deriveKey(secret);
+  const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(payload));
+  return `${btoa(String.fromCharCode(...new Uint8Array(sig)))}.${btoa(payload)}`;
+}
+__name(sign, "sign");
+async function verify(token, secret) {
+  try {
+    const [b64Sig, b64Payload] = token.split(".");
+    if (!b64Sig || !b64Payload) return null;
+    const payload = atob(b64Payload);
+    if (token !== await sign(payload, secret)) return null;
+    return payload;
+  } catch {
+    return null;
+  }
+}
+__name(verify, "verify");
+function getSessionSecret(env2) {
+  return env2?.ADMIN_SESSION_SECRET?.trim() || "openrockets-dev-secret-change-me-before-production";
+}
+__name(getSessionSecret, "getSessionSecret");
+async function makeSessionCookie(user, env2) {
+  const token = await sign(JSON.stringify(user), getSessionSecret(env2));
+  return `${COOKIE_NAME}=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${3600 * 24 * 30}`;
+}
+__name(makeSessionCookie, "makeSessionCookie");
+async function getSessionUser(request, env2) {
+  const cookieHeader = request.headers.get("Cookie");
+  if (!cookieHeader) return null;
+  const match2 = cookieHeader.match(new RegExp(`(^| )${COOKIE_NAME}=([^;]+)`));
+  if (!match2) return null;
+  const payloadStr = await verify(decodeURIComponent(match2[2]), getSessionSecret(env2));
+  if (!payloadStr) return null;
+  try {
+    return JSON.parse(payloadStr);
+  } catch {
+    return null;
+  }
+}
+__name(getSessionUser, "getSessionUser");
+async function loader$4({ request, context }) {
+  const user = await getSessionUser(request, context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {}));
+  if (!user) return {
+    authenticated: false,
+    unauthorized: false
+  };
+  if (!user.email.endsWith("@openrockets.com")) return {
+    authenticated: true,
+    unauthorized: true,
+    user
+  };
+  return {
+    authenticated: true,
+    unauthorized: false,
+    user
+  };
+}
+__name(loader$4, "loader$4");
+async function action({ request, context }) {
+  const env2 = context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {});
+  const user = await getSessionUser(request, env2);
+  if (!user || !user.email.endsWith("@openrockets.com")) return { error: "Access denied: Only @openrockets.com authenticated users are allowed." };
+  const formData = await request.formData();
+  const category = formData.get("category");
+  const content3 = formData.get("content");
+  if (!category || !content3) return { error: "Category and content are required." };
+  const titleMatch = content3.match(/^#\s+(.*)/m);
+  const slug = (titleMatch ? titleMatch[1].trim() : "untitled").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  const token = env2.GITHUB_TOKEN;
+  const owner = env2.GITHUB_OWNER || "OpenRockets-Press";
+  const repo = env2.GITHUB_REPO || "about.openrockets.com";
+  if (!token) return { error: "Server error: GITHUB_TOKEN is not configured in the environment." };
+  const filePath = `documents/${slug}.md`;
+  const fileContent = `[${category}]
+${content3}`;
+  try {
+    const encodedContent = btoa(unescape(encodeURIComponent(fileContent)));
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`, {
+      method: "PUT",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Accept": "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+        "User-Agent": "OpenRockets-Docs"
+      },
+      body: JSON.stringify({
+        message: `Create ${slug}.md via docs editor`,
+        content: encodedContent,
+        branch: "main",
+        committer: {
+          name: user.name,
+          email: user.email
+        }
+      })
+    });
+    if (!response.ok) return { error: `GitHub API error: ${(await response.json()).message}` };
+    return redirect(`/docs/${category}/${slug}`);
+  } catch (err) {
+    return { error: `Failed to save documentation: ${err.message}` };
+  }
+}
+__name(action, "action");
+async function loader$3({ request }) {
+  const q = new URL(request.url).searchParams.get("q")?.toLowerCase() || "";
+  if (!q) return {
+    q,
+    results: []
+  };
+  return {
+    q,
+    results: (await getAllDocs()).filter((doc) => {
+      return doc.title.toLowerCase().includes(q) || doc.content.toLowerCase().includes(q) || doc.category.toLowerCase().includes(q);
+    })
+  };
+}
+__name(loader$3, "loader$3");
+async function loader$2({ request, context }) {
+  const url = new URL(request.url);
+  const token = url.searchParams.get("token");
+  let returnTo = url.searchParams.get("returnTo");
+  if (!returnTo || !returnTo.startsWith("/")) returnTo = "/create";
+  if (!token) return redirect(returnTo);
+  const env2 = context.cloudflare?.env || (typeof process !== "undefined" ? process.env : {});
+  try {
+    const response = await fetch("https://openrocketsauth.alwaysdata.net/api/auth/me", { headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json"
+    } });
+    if (!response.ok) {
+      console.error("SSO Token validation failed");
+      return redirect(`${returnTo}?error=sso_failed`);
+    }
+    const userData = await response.json();
+    const cookie = await makeSessionCookie({
+      id: String(userData.id),
+      name: userData.name,
+      email: userData.email,
+      avatar_url: userData.profile?.avatar_url || null,
+      country_code: userData.profile?.country_code || null,
+      token
+    }, env2);
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: url.origin + returnTo,
+        "Set-Cookie": cookie
+      }
+    });
+  } catch (error) {
+    console.error("SSO Exception:", error);
+    return redirect(`${returnTo}?error=sso_exception`);
+  }
+}
+__name(loader$2, "loader$2");
+function Sidebar({ categories }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("aside", {
+    className: "w-full md:w-[280px] bg-white border-r border-black py-6 shrink-0 overflow-y-auto flex md:flex-col flex-row overflow-x-auto whitespace-nowrap scrollbar-hide",
+    children: [categories.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
+      className: "text-black text-sm px-6",
+      children: "No documentation found."
+    }) : null, categories.map((category) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+      className: "mb-8 mr-6 md:mr-0 inline-block md:block align-top",
+      children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
+        className: "text-[13px] font-bold text-black mx-6 mb-3 tracking-wide capitalize",
+        children: category.name.replace(/-/g, " ")
+      }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
+        className: "flex md:flex-col flex-row",
+        children: category.files.map((file) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(NavLink, {
+          to: `/docs/${category.name}/${file.slug}`,
+          className: /* @__PURE__ */ __name2(({ isActive }) => `block px-6 py-2 text-[15px] font-medium transition-colors ${isActive ? "bg-black text-white" : "text-black hover:bg-black/5 border-l-4 border-transparent md:border-b-0 border-b-4"}`, "className"),
+          children: file.title
+        }, file.slug))
+      })]
+    }, category.name))]
+  });
+}
+__name(Sidebar, "Sidebar");
 async function loader$1() {
   const docs2 = await getAllDocs();
   const categoriesMap = /* @__PURE__ */ new Map();
@@ -38201,63 +38436,35 @@ async function loader({ params }) {
   return { doc };
 }
 __name(loader, "loader");
-async function action({ request }) {
-  const formData = await request.formData();
-  const category = formData.get("category");
-  const content3 = formData.get("content");
-  const email = formData.get("email");
-  if (!email || !email.endsWith("@openrockets.com")) return { error: "Access denied: Only @openrockets.com emails are allowed." };
-  if (!category || !content3) return { error: "Category and content are required." };
-  const titleMatch = content3.match(/^#\s+(.*)/m);
-  const slug = (titleMatch ? titleMatch[1].trim() : "untitled").toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  const token = process.env.GITHUB_TOKEN;
-  const owner = process.env.GITHUB_OWNER || "OpenRockets";
-  const repo = process.env.GITHUB_REPO || "about.openrockets.com";
-  if (!token) return { error: "Server error: GITHUB_TOKEN is not configured in the environment." };
-  const filePath = `documents/${slug}.md`;
-  const fileContent = `[${category}]
-${content3}`;
-  try {
-    const encodedContent = btoa(unescape(encodeURIComponent(fileContent)));
-    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`, {
-      method: "PUT",
-      headers: {
-        "Authorization": `Bearer ${token}`,
-        "Accept": "application/vnd.github.v3+json",
-        "Content-Type": "application/json",
-        "User-Agent": "OpenRockets-Docs"
-      },
-      body: JSON.stringify({
-        message: `Create ${slug}.md via docs editor`,
-        content: encodedContent,
-        branch: "main"
-      })
-    });
-    if (!response.ok) return { error: `GitHub API error: ${(await response.json()).message}` };
-    return redirect(`/docs/${category}/${slug}`);
-  } catch (err) {
-    return { error: `Failed to save documentation: ${err.message}` };
-  }
+function meta({ data: data2 }) {
+  if (!data2?.doc) return [{ title: "Document Not Found | OpenRockets" }];
+  return [{ title: `${data2.doc.title} | OpenRockets` }];
 }
-__name(action, "action");
+__name(meta, "meta");
 var import_server4;
 var import_jsx_runtime2;
+var import_react6;
 var __defProp22;
 var __exportAll;
 var entry_server_exports;
 var streamTimeout;
 var root_exports;
+var meta$1;
 var links;
 var root_default;
 var ErrorBoundary;
 var home_exports;
 var home_default;
+var COOKIE_NAME;
+var create_exports;
+var create_default;
+var search_exports;
+var search_default;
+var auth_sso_callback_exports;
 var docs_layout_exports;
 var docs_layout_default;
 var doc_exports;
 var doc_default;
-var create_exports;
-var create_default;
 var server_manifest_default;
 var assetsBuildDirectory;
 var basename2;
@@ -38279,6 +38486,7 @@ var init_server4 = __esm({
     init_isbot();
     import_server4 = __toESM(require_server_edge(), 1);
     import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+    import_react6 = __toESM(require_react(), 1);
     init_lucide_react();
     init_react_markdown();
     __defProp22 = Object.defineProperty;
@@ -38301,9 +38509,21 @@ var init_server4 = __esm({
       ErrorBoundary: /* @__PURE__ */ __name2(() => ErrorBoundary, "ErrorBoundary"),
       Layout: /* @__PURE__ */ __name2(() => Layout, "Layout"),
       default: /* @__PURE__ */ __name2(() => root_default, "default"),
-      links: /* @__PURE__ */ __name2(() => links, "links")
+      links: /* @__PURE__ */ __name2(() => links, "links"),
+      meta: /* @__PURE__ */ __name2(() => meta$1, "meta")
     });
+    meta$1 = /* @__PURE__ */ __name2(() => {
+      return [{ title: "About, Help & Docs | OpenRockets" }, {
+        name: "description",
+        content: "Documentation and help for OpenRockets"
+      }];
+    }, "meta$1");
     links = /* @__PURE__ */ __name2(() => [
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/favicon.png"
+      },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com"
@@ -38343,15 +38563,246 @@ var init_server4 = __esm({
     __name2(getDocBySlug, "getDocBySlug");
     home_exports = /* @__PURE__ */ __exportAll({
       default: /* @__PURE__ */ __name2(() => home_default, "default"),
-      loader: /* @__PURE__ */ __name2(() => loader$2, "loader")
+      loader: /* @__PURE__ */ __name2(() => loader$5, "loader")
     });
     home_default = withComponentProps(/* @__PURE__ */ __name2(/* @__PURE__ */ __name(function Home() {
       return null;
     }, "Home"), "Home"));
-    __name2(loader$2, "loader$2");
+    __name2(loader$5, "loader$5");
+    __name2(MaterialInput, "MaterialInput");
     __name2(Header, "Header");
-    __name2(Sidebar, "Sidebar");
     __name2(Footer, "Footer");
+    COOKIE_NAME = "__or_reader_session";
+    __name2(deriveKey, "deriveKey");
+    __name2(sign, "sign");
+    __name2(verify, "verify");
+    __name2(getSessionSecret, "getSessionSecret");
+    __name2(makeSessionCookie, "makeSessionCookie");
+    __name2(getSessionUser, "getSessionUser");
+    create_exports = /* @__PURE__ */ __exportAll({
+      action: /* @__PURE__ */ __name2(() => action, "action"),
+      default: /* @__PURE__ */ __name2(() => create_default, "default"),
+      loader: /* @__PURE__ */ __name2(() => loader$4, "loader")
+    });
+    __name2(loader$4, "loader$4");
+    __name2(action, "action");
+    create_default = withComponentProps(/* @__PURE__ */ __name2(/* @__PURE__ */ __name(function Create() {
+      const { authenticated, unauthorized, user } = useLoaderData();
+      const actionData = useActionData();
+      const isSubmitting = useNavigation().state === "submitting";
+      return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+        className: "flex flex-col min-h-screen bg-white text-black font-sans",
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Header, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("main", {
+            className: "flex-1 p-6 md:p-12",
+            children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+              className: "max-w-4xl mx-auto",
+              children: [actionData?.error && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                className: "border border-black p-4 mb-6",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
+                    className: "font-bold",
+                    children: "Error:"
+                  }),
+                  " ",
+                  actionData.error
+                ]
+              }), !authenticated ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                className: "flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
+                    className: "text-3xl font-bold",
+                    children: "Writer Admin Access"
+                  }),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", {
+                    className: "text-lg font-medium max-w-lg",
+                    children: "Documentation publishing is restricted. You must be signed in with your `@openrockets.com` workspace account to create or edit articles."
+                  }),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", {
+                    href: "https://accounts.openrockets.com/login?redirect_uri=" + encodeURIComponent("https://about.openrockets.com/auth/sso-callback?returnTo=/create"),
+                    className: "bg-black text-white px-8 py-4 font-bold transition-transform hover:scale-105 active:scale-95 shadow-sm inline-block",
+                    children: "Sign in with OpenRockets"
+                  })
+                ]
+              }) : unauthorized ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                className: "flex flex-col items-center justify-center py-20 text-center space-y-6 border border-black p-10 bg-white mt-12 mb-12",
+                children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
+                  className: "text-3xl font-bold",
+                  children: "Unauthorized Access"
+                }), /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", {
+                  className: "text-lg font-medium max-w-lg",
+                  children: [
+                    "You are currently signed in as ",
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
+                      className: "font-bold border-b border-black",
+                      children: user?.email
+                    }),
+                    ".",
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
+                    "Only authorized OpenRockets team members with an ",
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
+                      className: "font-bold",
+                      children: "@openrockets.com"
+                    }),
+                    " email address can create documents on this page."
+                  ]
+                })]
+              }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                className: "flex items-center justify-between mb-8",
+                children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
+                  className: "text-3xl font-bold",
+                  children: "Create Documentation"
+                }), /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                  className: "flex items-center gap-3 text-sm font-bold border border-black px-4 py-2 bg-white",
+                  children: [user?.avatar_url && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", {
+                    src: user.avatar_url,
+                    alt: "Profile",
+                    className: "w-6 h-6 rounded-full border border-black"
+                  }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: user?.name })]
+                })]
+              }), /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(Form, {
+                method: "post",
+                className: "flex flex-col gap-6 bg-white p-6 md:p-8 border border-black",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                    className: "flex flex-col",
+                    children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)(MaterialInput, {
+                      type: "text",
+                      name: "category",
+                      label: "Category (e.g. openrockets-press)",
+                      required: true
+                    }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", {
+                      className: "text-xs text-black mt-2 font-medium",
+                      children: "The section in the sidebar where this will appear."
+                    })]
+                  }),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                    className: "flex flex-col",
+                    children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)(MaterialInput, {
+                      name: "content",
+                      label: "Markdown Content (Must start with # Title)",
+                      required: true,
+                      multiline: true
+                    }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", {
+                      className: "text-xs text-black mt-2 font-medium",
+                      children: "Use Markdown formatting. The first line must be an H1 headline (`# Title`) which will be used as the page name."
+                    })]
+                  }),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", {
+                    type: "submit",
+                    disabled: isSubmitting,
+                    className: "bg-black text-white font-bold py-3 px-8 hover:opacity-80 w-full md:w-auto self-end disabled:opacity-50 transition-opacity",
+                    children: isSubmitting ? "Publishing to GitHub..." : "Publish Documentation"
+                  })
+                ]
+              })] })]
+            })
+          }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Footer, {})
+        ]
+      });
+    }, "Create"), "Create"));
+    search_exports = /* @__PURE__ */ __exportAll({
+      default: /* @__PURE__ */ __name2(() => search_default, "default"),
+      loader: /* @__PURE__ */ __name2(() => loader$3, "loader")
+    });
+    __name2(loader$3, "loader$3");
+    search_default = withComponentProps(/* @__PURE__ */ __name2(/* @__PURE__ */ __name(function SearchPage() {
+      const { q, results } = useLoaderData();
+      return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+        className: "min-h-screen flex flex-col bg-white text-black font-sans",
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Header, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("main", {
+            className: "flex-1 container mx-auto px-6 py-12 max-w-4xl",
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                className: "mb-10",
+                children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
+                  className: "text-3xl font-bold text-black mb-4",
+                  children: "Search Results"
+                }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", {
+                  className: "text-black font-medium text-lg",
+                  children: q ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: ["Showing results for ", /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", {
+                    className: "font-semibold text-blue-600",
+                    children: [
+                      '"',
+                      q,
+                      '"'
+                    ]
+                  })] }) : "Please enter a search query."
+                })]
+              }),
+              q && results.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                className: "text-center flex flex-col items-center justify-center mt-12 mb-12",
+                children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", {
+                  src: "https://cdna.artstation.com/p/assets/images/images/067/012/126/original/ester-auroora-from-otter-animation-sketch.gif",
+                  alt: "No results found",
+                  className: "w-[150px] md:w-[200px] h-auto mb-6 object-contain"
+                }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", {
+                  className: "text-2xl font-bold text-black mb-2 tracking-tight",
+                  children: "No results found"
+                })]
+              }),
+              results.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                className: "space-y-4",
+                children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", {
+                  className: "text-sm font-medium text-gray-500 mb-6 uppercase tracking-wider",
+                  children: [
+                    results.length,
+                    " ",
+                    results.length === 1 ? "document" : "documents",
+                    " found"
+                  ]
+                }), results.map((doc, idx) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Link, {
+                  to: `/docs/${doc.category}/${doc.slug}`,
+                  className: "group block bg-white p-6 shadow-sm border border-black hover:bg-black/5 transition-all",
+                  children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                    className: "flex items-start gap-4",
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
+                        className: "w-10 h-10 bg-black text-white flex items-center justify-center shrink-0",
+                        children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(FileText, { size: 20 })
+                      }),
+                      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
+                        className: "flex-1 min-w-0",
+                        children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
+                            className: "flex items-center gap-2 mb-1",
+                            children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
+                              className: "text-xs font-semibold text-blue-600 uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded",
+                              children: doc.category.replace(/-/g, " ")
+                            })
+                          }),
+                          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h3", {
+                            className: "text-lg font-bold text-black mb-2 group-hover:underline",
+                            children: doc.title
+                          }),
+                          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", {
+                            className: "text-black text-sm line-clamp-2",
+                            children: [doc.content.replace(/#.*$/gm, "").replace(/\[.*?\]/g, "").replace(/[*_~`]/g, "").trim().substring(0, 150), "..."]
+                          })
+                        ]
+                      }),
+                      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
+                        className: "hidden sm:flex items-center self-center shrink-0 text-black pl-4",
+                        children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(ChevronRight, { size: 24 })
+                      })
+                    ]
+                  })
+                }, `${doc.category}-${doc.slug}-${idx}`))]
+              })
+            ]
+          }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Footer, {})
+        ]
+      });
+    }, "SearchPage"), "SearchPage"));
+    auth_sso_callback_exports = /* @__PURE__ */ __exportAll({ loader: /* @__PURE__ */ __name2(() => loader$2, "loader") });
+    __name2(loader$2, "loader$2");
+    __name2(Sidebar, "Sidebar");
     docs_layout_exports = /* @__PURE__ */ __exportAll({
       default: /* @__PURE__ */ __name2(() => docs_layout_default, "default"),
       loader: /* @__PURE__ */ __name2(() => loader$1, "loader")
@@ -38375,9 +38826,11 @@ var init_server4 = __esm({
     }, "DocsLayout"), "DocsLayout"));
     doc_exports = /* @__PURE__ */ __exportAll({
       default: /* @__PURE__ */ __name2(() => doc_default, "default"),
-      loader: /* @__PURE__ */ __name2(() => loader, "loader")
+      loader: /* @__PURE__ */ __name2(() => loader, "loader"),
+      meta: /* @__PURE__ */ __name2(() => meta, "meta")
     });
     __name2(loader, "loader");
+    __name2(meta, "meta");
     doc_default = withComponentProps(/* @__PURE__ */ __name2(/* @__PURE__ */ __name(function DocRoute() {
       const { doc } = useLoaderData();
       return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("article", {
@@ -38385,122 +38838,6 @@ var init_server4 = __esm({
         children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Markdown, { children: doc.content.replace(/^\[.*?\]\n*/m, "") })
       });
     }, "DocRoute"), "DocRoute"));
-    create_exports = /* @__PURE__ */ __exportAll({
-      action: /* @__PURE__ */ __name2(() => action, "action"),
-      default: /* @__PURE__ */ __name2(() => create_default, "default")
-    });
-    __name2(action, "action");
-    create_default = withComponentProps(/* @__PURE__ */ __name2(/* @__PURE__ */ __name(function Create() {
-      const actionData = useActionData();
-      const isSubmitting = useNavigation().state === "submitting";
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-        className: "flex flex-col h-screen overflow-hidden bg-white",
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Header, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("main", {
-            className: "flex-1 overflow-y-auto p-6 md:p-12",
-            children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-              className: "max-w-4xl mx-auto",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", {
-                  className: "text-3xl font-bold mb-8",
-                  children: "Create Documentation"
-                }),
-                actionData?.error && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", {
-                  className: "bg-red-50 text-red-600 p-4 rounded-md mb-6 border border-red-200",
-                  children: actionData.error
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(Form, {
-                  method: "post",
-                  className: "flex flex-col gap-6 bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-200",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-                      className: "bg-blue-50 p-4 rounded-md border border-blue-100 mb-2",
-                      children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h3", {
-                          className: "font-semibold text-blue-800 mb-1",
-                          children: "OpenRockets Single Sign-On"
-                        }),
-                        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", {
-                          className: "text-sm text-blue-600",
-                          children: "Access is restricted to authorized contributors."
-                        }),
-                        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
-                          className: "mt-4",
-                          children: [/* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", {
-                            className: "block text-sm font-semibold mb-2",
-                            children: "OpenRockets Email"
-                          }), /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", {
-                            type: "email",
-                            name: "email",
-                            placeholder: "your.name@openrockets.com",
-                            className: "w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm outline-none focus:border-blue-500 bg-white",
-                            required: true
-                          })]
-                        })
-                      ]
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("hr", { className: "border-gray-200" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", {
-                        className: "block text-sm font-semibold mb-2",
-                        children: "Category"
-                      }),
-                      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", {
-                        className: "text-xs text-gray-500 mb-2",
-                        children: [
-                          "The section in the sidebar where this will appear (e.g. ",
-                          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("code", { children: "openrockets-press" }),
-                          ")"
-                        ]
-                      }),
-                      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", {
-                        type: "text",
-                        name: "category",
-                        placeholder: "e.g. openrockets-press",
-                        className: "w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm outline-none focus:border-blue-500",
-                        required: true
-                      })
-                    ] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", {
-                        className: "block text-sm font-semibold mb-2",
-                        children: "Markdown Content"
-                      }),
-                      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", {
-                        className: "text-xs text-gray-500 mb-2",
-                        children: [
-                          "Use Markdown formatting. ",
-                          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("strong", {
-                            className: "text-red-500",
-                            children: "Important:"
-                          }),
-                          " The first line must be an H1 headline (`# Title`) which will be used as the page name."
-                        ]
-                      }),
-                      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", {
-                        name: "content",
-                        rows: 15,
-                        className: "w-full px-4 py-3 border border-gray-300 rounded-md font-mono text-sm shadow-sm outline-none focus:border-blue-500 leading-relaxed",
-                        placeholder: "# Introduction to the new project\n\nWrite your documentation here...",
-                        required: true
-                      })
-                    ] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", {
-                      type: "submit",
-                      disabled: isSubmitting,
-                      className: "bg-blue-600 text-white font-semibold py-3 px-8 rounded-md hover:bg-blue-700 w-full md:w-auto self-end disabled:opacity-50 shadow-sm transition-colors",
-                      children: isSubmitting ? "Publishing to GitHub..." : "Publish Documentation"
-                    })
-                  ]
-                })
-              ]
-            })
-          }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Footer, {})
-        ]
-      });
-    }, "Create"), "Create"));
     server_manifest_default = {
       "entry": {
         "module": "/assets/entry.client-CEw5-AfC.js",
@@ -38525,14 +38862,14 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": true,
-          "module": "/assets/root-Bj7FxNso.js",
+          "module": "/assets/root-Dem4H-lA.js",
           "imports": [
             "/assets/components-BTTkrXdt.js",
             "/assets/components-DRsIKch7.js",
             "/assets/jsx-runtime-CS_A_yFI.js",
             "/assets/lib-DnNTIa7K.js"
           ],
-          "css": ["/assets/root-BbBuh0xr.css"],
+          "css": ["/assets/root-DA-nYBIZ.css"],
           "clientActionModule": void 0,
           "clientLoaderModule": void 0,
           "clientMiddlewareModule": void 0,
@@ -38559,6 +38896,81 @@ var init_server4 = __esm({
           "clientMiddlewareModule": void 0,
           "hydrateFallbackModule": void 0
         },
+        "routes/create": {
+          "id": "routes/create",
+          "parentId": "root",
+          "path": "create",
+          "index": void 0,
+          "caseSensitive": void 0,
+          "hasAction": true,
+          "hasLoader": true,
+          "hasClientAction": false,
+          "hasClientLoader": false,
+          "hasClientMiddleware": false,
+          "hasDefaultExport": true,
+          "hasErrorBoundary": false,
+          "module": "/assets/create-Cu3TiaQH.js",
+          "imports": [
+            "/assets/components-BTTkrXdt.js",
+            "/assets/lib-DnNTIa7K.js",
+            "/assets/jsx-runtime-CS_A_yFI.js",
+            "/assets/Footer-Ca0a1vwI.js",
+            "/assets/components-DRsIKch7.js"
+          ],
+          "css": [],
+          "clientActionModule": void 0,
+          "clientLoaderModule": void 0,
+          "clientMiddlewareModule": void 0,
+          "hydrateFallbackModule": void 0
+        },
+        "routes/search": {
+          "id": "routes/search",
+          "parentId": "root",
+          "path": "search",
+          "index": void 0,
+          "caseSensitive": void 0,
+          "hasAction": false,
+          "hasLoader": true,
+          "hasClientAction": false,
+          "hasClientLoader": false,
+          "hasClientMiddleware": false,
+          "hasDefaultExport": true,
+          "hasErrorBoundary": false,
+          "module": "/assets/search-BgAEWBN7.js",
+          "imports": [
+            "/assets/components-BTTkrXdt.js",
+            "/assets/lib-DnNTIa7K.js",
+            "/assets/jsx-runtime-CS_A_yFI.js",
+            "/assets/Footer-Ca0a1vwI.js",
+            "/assets/components-DRsIKch7.js"
+          ],
+          "css": [],
+          "clientActionModule": void 0,
+          "clientLoaderModule": void 0,
+          "clientMiddlewareModule": void 0,
+          "hydrateFallbackModule": void 0
+        },
+        "routes/auth.sso-callback": {
+          "id": "routes/auth.sso-callback",
+          "parentId": "root",
+          "path": "auth/sso-callback",
+          "index": void 0,
+          "caseSensitive": void 0,
+          "hasAction": false,
+          "hasLoader": true,
+          "hasClientAction": false,
+          "hasClientLoader": false,
+          "hasClientMiddleware": false,
+          "hasDefaultExport": false,
+          "hasErrorBoundary": false,
+          "module": "/assets/auth.sso-callback-BvRk9kiK.js",
+          "imports": [],
+          "css": [],
+          "clientActionModule": void 0,
+          "clientLoaderModule": void 0,
+          "clientMiddlewareModule": void 0,
+          "hydrateFallbackModule": void 0
+        },
         "routes/docs-layout": {
           "id": "routes/docs-layout",
           "parentId": "root",
@@ -38572,12 +38984,12 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": false,
-          "module": "/assets/docs-layout-BhclCicH.js",
+          "module": "/assets/docs-layout-DPgAEuhI.js",
           "imports": [
             "/assets/components-BTTkrXdt.js",
             "/assets/lib-DnNTIa7K.js",
             "/assets/jsx-runtime-CS_A_yFI.js",
-            "/assets/Footer-Bv4i7jn5.js",
+            "/assets/Footer-Ca0a1vwI.js",
             "/assets/components-DRsIKch7.js"
           ],
           "css": [],
@@ -38599,35 +39011,8 @@ var init_server4 = __esm({
           "hasClientMiddleware": false,
           "hasDefaultExport": true,
           "hasErrorBoundary": false,
-          "module": "/assets/doc-hRsS5e21.js",
+          "module": "/assets/doc-BFX0ANAn.js",
           "imports": ["/assets/components-BTTkrXdt.js", "/assets/jsx-runtime-CS_A_yFI.js"],
-          "css": [],
-          "clientActionModule": void 0,
-          "clientLoaderModule": void 0,
-          "clientMiddlewareModule": void 0,
-          "hydrateFallbackModule": void 0
-        },
-        "routes/create": {
-          "id": "routes/create",
-          "parentId": "root",
-          "path": "create",
-          "index": void 0,
-          "caseSensitive": void 0,
-          "hasAction": true,
-          "hasLoader": false,
-          "hasClientAction": false,
-          "hasClientLoader": false,
-          "hasClientMiddleware": false,
-          "hasDefaultExport": true,
-          "hasErrorBoundary": false,
-          "module": "/assets/create-CpB9zqa_.js",
-          "imports": [
-            "/assets/components-BTTkrXdt.js",
-            "/assets/lib-DnNTIa7K.js",
-            "/assets/jsx-runtime-CS_A_yFI.js",
-            "/assets/Footer-Bv4i7jn5.js",
-            "/assets/components-DRsIKch7.js"
-          ],
           "css": [],
           "clientActionModule": void 0,
           "clientLoaderModule": void 0,
@@ -38635,8 +39020,8 @@ var init_server4 = __esm({
           "hydrateFallbackModule": void 0
         }
       },
-      "url": "/assets/manifest-dbf527fc.js",
-      "version": "dbf527fc",
+      "url": "/assets/manifest-80d662b0.js",
+      "version": "80d662b0",
       "sri": void 0
     };
     assetsBuildDirectory = "build\\client";
@@ -38668,6 +39053,30 @@ var init_server4 = __esm({
         caseSensitive: void 0,
         module: home_exports
       },
+      "routes/create": {
+        id: "routes/create",
+        parentId: "root",
+        path: "create",
+        index: void 0,
+        caseSensitive: void 0,
+        module: create_exports
+      },
+      "routes/search": {
+        id: "routes/search",
+        parentId: "root",
+        path: "search",
+        index: void 0,
+        caseSensitive: void 0,
+        module: search_exports
+      },
+      "routes/auth.sso-callback": {
+        id: "routes/auth.sso-callback",
+        parentId: "root",
+        path: "auth/sso-callback",
+        index: void 0,
+        caseSensitive: void 0,
+        module: auth_sso_callback_exports
+      },
       "routes/docs-layout": {
         id: "routes/docs-layout",
         parentId: "root",
@@ -38683,14 +39092,6 @@ var init_server4 = __esm({
         index: void 0,
         caseSensitive: void 0,
         module: doc_exports
-      },
-      "routes/create": {
-        id: "routes/create",
-        parentId: "root",
-        path: "create",
-        index: void 0,
-        caseSensitive: void 0,
-        module: create_exports
       }
     };
     allowedActionOrigins = false;
@@ -38716,8 +39117,7 @@ var init_path = __esm({
           }
         } catch (e) {
         }
-        const loadContext = new RouterContextProvider();
-        loadContext.set("cloudflare", { env: context.env, ctx: context.ctx || {} });
+        const loadContext = { cloudflare: { env: context.env, ctx: context.ctx || {} } };
         return await handleRequest2(context.request, loadContext);
       } catch (error) {
         console.error("Worker Crash:", error);
@@ -39677,7 +40077,8 @@ lucide-react/dist/esm/shared/src/utils/hasA11yProp.mjs:
 lucide-react/dist/esm/context.mjs:
 lucide-react/dist/esm/Icon.mjs:
 lucide-react/dist/esm/createLucideIcon.mjs:
-lucide-react/dist/esm/icons/search.mjs:
+lucide-react/dist/esm/icons/chevron-right.mjs:
+lucide-react/dist/esm/icons/file-text.mjs:
 lucide-react/dist/esm/lucide-react.mjs:
   (**
    * @license lucide-react v1.21.0 - ISC
