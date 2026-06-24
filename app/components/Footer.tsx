@@ -6,7 +6,14 @@ export function Footer() {
       <div className="max-w-4xl mx-auto px-6 py-10 md:px-12 flex flex-col items-start text-left">
         <div className="flex flex-col items-start gap-3 mb-6">
           <img src="https://openrockets.com/v/openrockets.png" alt="OpenRockets Logo" className="w-[120px] invert" />
-          <span className="text-xl font-bold tracking-tight font-sans">About, Help & Docs</span>
+          <p className="text-sm font-medium tracking-tight font-sans max-w-lg mt-2">
+            OpenRockets INC is an infrastructure service provider for nonprofits run by exceptional minors and teenagers worldwide.
+          </p>
+        </div>
+        <div className="mb-6">
+          <a href="https://openrockets.com" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2 underline decoration-2 underline-offset-4">
+            <i className="bi bi-arrow-left"></i> Back to OpenRockets.com
+          </a>
         </div>
         <div className="flex flex-col md:flex-row flex-wrap justify-start gap-6 md:gap-8 mb-8 w-full">
           <a href="https://discord.gg/djXh8udpbn" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
