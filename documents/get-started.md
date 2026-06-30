@@ -20,6 +20,8 @@ OpenRockets Press is a publishing platform for creators between the ages of 6 an
 
 The platform brings together publishing opportunities in one place, including student publishers, academic journals, formal publishing organizations, artwork publishers, competitions, state competitions, private organizations, hackathons, exhibitions, and showcases from around the world. Instead of searching for these opportunities individually, users can discover and submit their work through a single publishing workflow.
 
+![OpenRockets Press logo](https://github.com/user-attachments/assets/403ce4aa-3826-48bf-9b64-166879a6d5f5)
+
 OpenRockets Press also maintains a public archive of accepted work. When an artifact is accepted by a publisher, competition, journal, or organization through the platform, it can be added to this archive. Each archived artifact receives a permanent, unique identifier, which allows it to be referenced, cited, and accessed over time. This makes it possible for researchers, educators, authors, and other professionals to cite the work of young creators in research papers, books, and other publications.
 
 To publish on the platform, click "Publish." New users are guided through a registration process using OpenRockets Accounts. Once an account is set up, users can upload an artifact, provide the required information, and submit it to selected publishers or opportunities.
