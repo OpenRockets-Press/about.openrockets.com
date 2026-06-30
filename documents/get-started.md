@@ -36,6 +36,15 @@ OpenRockets Press connects young creators with hundreds of publishers and organi
 
 The platform's goal is to bring together work created by young people that is otherwise scattered across schools, homes, and local communities, and make it accessible in a single global collection.
 
+## Related Links
+
+1. [Publish your artefact](https://press.openrockets.com/publish)
+2. [Publishing Books with OpenRockets Press (free)](https://press.openrockets.com/books)
+3. [List of Publishers available on OpenRockets Press](https://press.openrockets.com/publishers)
+4. [About OpenRockets Inc.](https://about.openrockets.com/docs/about-us/who-we-are)
+5. [Submit to OpenRockets Magazine](https://magazine.openrockets.com)
+
+
 Ryan Chan
 United States Rep, Management Team
 OpenRockets Inc.
