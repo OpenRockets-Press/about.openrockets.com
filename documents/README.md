@@ -33,23 +33,6 @@ One area we are actively working on is developing licensing standards designed s
 
 These licenses are currently in development and will be available through OpenRockets Press.
 
-## What We Build
-
-OpenRockets develops infrastructure and platforms that support young creators.
-
-Our projects include:
-
-* **ZeroProfit**, our primary platform built around our nonprofit operating model.
-* **OpenRockets Press**, where we publish documentation, announcements, and educational resources.
-* **OpenRockets Magazine**, a platform for stories, ideas, and perspectives from young people.
-* **OpenRockets Ads**, which helps organizations manage age-appropriate payment flows while keeping services free for minors.
-
-As our community grows, we continue building new tools that support our mission.
-
-## Giving Back
-
-When resources allow, we support organizations and initiatives that reflect our values. Our focus is on education, opportunity, technology, and protecting children from exploitation.
-
 ## Join Us
 
 OpenRockets is built by volunteers from around the world.
