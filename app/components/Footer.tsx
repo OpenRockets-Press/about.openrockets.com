@@ -7,12 +7,12 @@ export function Footer() {
         <div className="flex flex-col items-start gap-3 mb-6">
           <img src="https://openrockets.com/v/openrockets.png" alt="OpenRockets Logo" className="w-[120px] invert" />
           <p className="text-sm font-medium tracking-tight font-sans max-w-lg mt-2">
-            OpenRockets INC is an infrastructure service provider for nonprofits run by exceptional minors and teenagers worldwide.
+            OpenRockets Inc. is an infrastructure service provider for nonprofits run by exceptional minors and teenagers worldwide.
           </p>
         </div>
         <div className="mb-6">
           <a href="https://openrockets.com" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2 underline decoration-2 underline-offset-4">
-            <i className="bi bi-arrow-left"></i> Back to OpenRockets.com
+            🚩 Back to OpenRockets.com
           </a>
         </div>
         <div className="flex flex-col md:flex-row flex-wrap justify-start gap-6 md:gap-8 mb-8 w-full">
@@ -29,7 +29,7 @@ export function Footer() {
             <img src="https://substackcdn.com/image/fetch/$s_!YU9o!,w_170,c_limit,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc66b391-ca1e-435a-bca3-c286b6c97085_314x314.png" alt="" className="w-[30px] h-[30px] object-contain rounded-full" /> ZeroProfit
           </a>
           <Link to="/create" className="text-black hover:opacity-70 transition-opacity font-bold flex items-center gap-2">
-            <i className="bi bi-pencil-square"></i> Writer Admin
+            <i className="bi bi-pencil-square"></i> Team Login
           </Link>
         </div>
         <div className="pt-6 w-full text-black text-sm font-medium">
