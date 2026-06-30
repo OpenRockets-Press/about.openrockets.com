@@ -2,7 +2,7 @@
 
 # Get Started
 
-<img width="642" height="276" alt="image" src="https://github.com/user-attachments/assets/4effffa1-496c-47c0-9e10-08229b8b5970" />
+<img width="150" alt="image" src="https://github.com/user-attachments/assets/4effffa1-496c-47c0-9e10-08229b8b5970" />
 
 
 ### Welcome to OpenRockets Press
