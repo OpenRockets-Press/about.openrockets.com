@@ -2,7 +2,7 @@
 
 # Get Started
 
-![OpenRockets Press logo](https://framerusercontent.com/images/OiAbHOdRwmpmFOSRs6F4JYkd9qQ.png?width=2500&height=1667)
+![OpenRockets Press logo](https://ucf.org.au/wp-content/uploads/ucf-gradient-banner.jpg)
 
 ### Welcome to OpenRockets Press
 
@@ -10,10 +10,10 @@ For inquiries related to the press, contact: press@openrockets.com
 
 ## Related Links
 
-1. [Publish your artifact](https://press.openrockets.com/publish)
+1. [Publish your artefact](https://press.openrockets.com/publish)
 2. [Publishing Books with OpenRockets Press (free)](https://press.openrockets.com/books)
 3. [List of Publishers available on OpenRockets Press](https://press.openrockets.com/publishers)
-4. [About OpenRockets Inc.](https://about.openrockets.com/docs/openrockets-press/we-are-openrockets)
+4. [About OpenRockets Inc.](https://about.openrockets.com/docs/about-us/who-we-are)
 5. [Submit to OpenRockets Magazine](https://magazine.openrockets.com)
 
 OpenRockets Press is a publishing platform for creators between the ages of 6 and 19. It allows students to share original work across categories such as art, research, inventions, design, writing, and software.
