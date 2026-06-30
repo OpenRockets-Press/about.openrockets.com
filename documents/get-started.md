@@ -2,7 +2,7 @@
 
 # Get Started
 
-![OpenRockets Press logo](https://ucf.org.au/wp-content/uploads/ucf-gradient-banner.jpg)
+![OpenRockets Press logo](https://github.com/user-attachments/assets/8012a24f-6acb-4684-acbc-0e6d376b40cd)
 
 ### Welcome to OpenRockets Press
 
