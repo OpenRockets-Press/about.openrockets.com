@@ -1,34 +1,38 @@
-[press]
 # Get Started
+
+![OpenRockets Press logo](https://openrockets.com/v/openrockets-w.png)
 
 ### Welcome to OpenRockets Press
 
-**OpenRockets Press** is a new world of creativity, freedom, and authentic expression. It is a place where young people can showcase the ideas, creations, and achievements they have been developing since childhood. Every artifact tells a story, reflects a unique perspective, and demonstrates the remarkable potential of the human mind.
+For inquiries related to the press, contact: press@openrockets.com
 
-OpenRockets Press is designed for creators between the ages of 6 and 19, providing a multidimensional publishing platform where students can share many different kinds of original work. Whether you are an artist, researcher, inventor, designer, writer, programmer, or maker, OpenRockets Press gives you a place to publish your authentic work and connect it with opportunities around the world.
+## Related Links
 
-Our platform brings together hundreds of publishing opportunities in one place. These include student publishers, academic journals, formal publishing organizations, artwork publishers, competitions, state competitions, private organizations, hackathons, exhibitions, showcases, and many other prestigious programs from across the globe. Instead of searching for opportunities individually, you can easily discover and submit your work through a streamlined publishing experience designed specifically for young creators.
+1. [Publish your artifact](https://press.openrockets.com/publish)
+2. [Publishing Books with OpenRockets Press (free)](https://press.openrockets.com/books)
+3. [List of Publishers available on OpenRockets Press](https://press.openrockets.com/publishers)
+4. [About OpenRockets Inc.](https://about.openrockets.com/docs/openrockets-press/we-are-openrockets)
+5. [Submit to OpenRockets Magazine](https://magazine.openrockets.com)
 
-OpenRockets Press is also committed to advancing open science and open knowledge. When one of your artifacts is accepted by a publisher, competition, journal, or organization through our platform, it can also become part of our growing public archive of young innovators and creators. This archive preserves the intellectual achievements of young people and makes them discoverable for future generations.
+OpenRockets Press is a publishing platform for creators between the ages of 6 and 19. It allows students to share original work across categories such as art, research, inventions, design, writing, and software.
 
-Every archived artifact is assigned a permanent and unique identifier, ensuring that it can be referenced, cited, and accessed over time. This allows researchers, educators, authors, professionals, and even adults to cite and acknowledge the work of young creators in research papers, books, educational materials, and other publications. By preserving these contributions, OpenRockets Press helps ensure that valuable intellectual work created by young people receives the recognition it deserves.
+The platform brings together publishing opportunities in one place, including student publishers, academic journals, formal publishing organizations, artwork publishers, competitions, state competitions, private organizations, hackathons, exhibitions, and showcases from around the world. Instead of searching for these opportunities individually, users can discover and submit their work through a single publishing workflow.
 
-Publishing on OpenRockets Press is designed to be simple and intuitive. To begin, simply click the Publish button. If you do not already have an account, you will be guided through a quick registration process using OpenRockets Accounts. Once your account is ready, you can upload your artifact, provide the necessary information, and submit it to the publishers or opportunities of your choice through a clear and user-friendly workflow.
+OpenRockets Press also maintains a public archive of accepted work. When an artifact is accepted by a publisher, competition, journal, or organization through the platform, it can be added to this archive. Each archived artifact receives a permanent, unique identifier, which allows it to be referenced, cited, and accessed over time. This makes it possible for researchers, educators, authors, and other professionals to cite the work of young creators in research papers, books, and other publications.
 
-Security and privacy are fundamental to everything we do. OpenRockets Accounts are hosted in secure data centers in the United States, and all sensitive information is encrypted both during transmission and while stored. Your personal data is protected using modern security practices, and unauthorized access is prevented through multiple layers of protection.
+To publish on the platform, click "Publish." New users are guided through a registration process using OpenRockets Accounts. Once an account is set up, users can upload an artifact, provide the required information, and submit it to selected publishers or opportunities.
 
-We also understand that the information you share with us is based on trust. That trust is something we value deeply. We handle every user's data responsibly, carefully, and transparently. Your information is never treated as a product, and protecting your privacy remains one of our highest priorities.
+OpenRockets Accounts are hosted in secure data centers in the United States. Sensitive information is encrypted both in transit and at rest, and access is restricted through multiple layers of security. User data is not sold or treated as a product.
 
-OpenRockets was originally founded as a nonprofit initiative with a simple mission: to help young people share their work with the world without financial barriers. As the platform grew, it became a corporate entity to support larger infrastructure, expand internationally, and build more advanced services while continuing to keep publishing accessible to students everywhere. Despite this transition, our mission has remained the same. OpenRockets Press is completely free to use.
+OpenRockets was founded as a nonprofit initiative to help young people share their work without financial barriers. As the platform grew, it became a corporate entity to support larger infrastructure and expand internationally, while keeping the publishing service free for students. OpenRockets Press remains free to use.
 
-We welcome an extraordinary variety of original work. You can publish artworks, research papers, inventions, engineering projects, scientific discoveries, 3D models, sculptures, posters, club materials, graphic designs, brochures, flyers, presentations, educational resources, software projects, prototypes, architectural designs, and many other forms of authentic creation. If it represents your original effort, creativity, innovation, or knowledge, OpenRockets Press is built to help you share it with the world.
+Work that can be published on the platform includes artworks, research papers, inventions, engineering projects, scientific discoveries, 3D models, sculptures, posters, club materials, graphic designs, brochures, flyers, presentations, educational resources, software projects, prototypes, architectural designs, and other original creations.
 
-Transparency, accessibility, and trust are at the heart of our platform. OpenRockets Press connects young creators with hundreds of publishers and organizations from different countries and disciplines, making it easier than ever to discover meaningful opportunities and publish work that deserves recognition.
+OpenRockets Press connects young creators with hundreds of publishers and organizations across different countries and disciplines, supporting submissions to journals, competitions, hackathons, and other programs.
 
-Whether your goal is to publish in a journal, submit to an international competition, participate in a hackathon, showcase your artwork, or contribute to a global initiative, OpenRockets Press provides the tools, infrastructure, and opportunities to help you succeed.
+The platform's goal is to bring together work created by young people that is otherwise scattered across schools, homes, and local communities, and make it accessible in a single global collection.
 
-Our vision is simple. Across the world, countless ideas, discoveries, artworks, and inventions created by young people remain unseen and scattered across schools, homes, clubs, and local communities. OpenRockets Press brings these remarkable contributions together into one global collection, revealing the extraordinary intellectual potential of humanity from its earliest years. By giving young creators a platform to publish, preserve, and share their work, we hope to inspire the next generation of innovators while making their achievements visible to the entire world.
-
-Ryan Chan,
-United States Rep, Management
+Ryan Chan
+United States Rep, Management Team
 OpenRockets Inc.
+press@openrockets.com
