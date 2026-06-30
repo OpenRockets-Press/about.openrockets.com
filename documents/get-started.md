@@ -2,7 +2,7 @@
 
 # Get Started
 
-![OpenRockets Press logo](https://github.com/user-attachments/assets/4effffa1-496c-47c0-9e10-08229b8b5970)
+![OpenRockets Press logo](https://framerusercontent.com/images/OiAbHOdRwmpmFOSRs6F4JYkd9qQ.png?width=2500&height=1667)
 
 ### Welcome to OpenRockets Press
 
