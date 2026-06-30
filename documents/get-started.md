@@ -1,11 +1,9 @@
 [press]
-# get-started
-
-<img src="https://openrockets.com/v/openrockets.png" width="150px">
+# Get Started
 
 ### Welcome to OpenRockets Press
 
-<b>O</b>penRockets Press is a new world of creativity, freedom, and authentic expression. It is a place where young people can showcase the ideas, creations, and achievements they have been developing since childhood. Every artifact tells a story, reflects a unique perspective, and demonstrates the remarkable potential of the human mind.
+**OpenRockets Press** is a new world of creativity, freedom, and authentic expression. It is a place where young people can showcase the ideas, creations, and achievements they have been developing since childhood. Every artifact tells a story, reflects a unique perspective, and demonstrates the remarkable potential of the human mind.
 
 OpenRockets Press is designed for creators between the ages of 6 and 19, providing a multidimensional publishing platform where students can share many different kinds of original work. Whether you are an artist, researcher, inventor, designer, writer, programmer, or maker, OpenRockets Press gives you a place to publish your authentic work and connect it with opportunities around the world.
 
