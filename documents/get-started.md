@@ -1,3 +1,5 @@
+[press]
+
 # Get Started
 
 ![OpenRockets Press logo](https://openrockets.com/v/openrockets-w.png){width=150px}
