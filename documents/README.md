@@ -13,12 +13,9 @@ OpenRockets is a nonprofit organization built around a simple idea. Young people
 We believe teenagers are capable of building meaningful things when they have access to the right opportunities and support.
 Rather than focusing on a single program, OpenRockets develops projects across education, publishing, developer infrastructure, open source software, and youth initiatives. Every project shares the same goal of helping people under 18 learn, create, and contribute with confidence.
 
-## What ZeroProfit Means
+## ZeroProfit
 
-
-ZeroProfit is our operating model.
-We never charge minors to use our services. Access to our platforms, programs, and opportunities is always free for users under 18.
-
+[Learn more about ZeroProfit](https://zeroprofit.org)
 
 ![kju](https://github.com/user-attachments/assets/7d272ef1-dd42-478a-807e-35463dbb5634)
 
