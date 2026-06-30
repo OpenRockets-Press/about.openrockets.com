@@ -15,6 +15,7 @@ For inquiries related to the press, contact: press@openrockets.com
 3. [List of Publishers available on OpenRockets Press](https://press.openrockets.com/publishers)
 4. [About OpenRockets Inc.](https://about.openrockets.com/docs/about-us/who-we-are)
 5. [Submit to OpenRockets Magazine](https://magazine.openrockets.com)
+6. [What is an Artifact and how it should be (file types, etc.) ](https://about.openrockets.com/docs/press/artifacts)
 
 OpenRockets Press is a publishing platform for creators between the ages of 6 and 19. It allows students to share original work across categories such as art, research, inventions, design, writing, and software.
 
@@ -43,6 +44,7 @@ The platform's goal is to bring together work created by young people that is ot
 3. [List of Publishers available on OpenRockets Press](https://press.openrockets.com/publishers)
 4. [About OpenRockets Inc.](https://about.openrockets.com/docs/about-us/who-we-are)
 5. [Submit to OpenRockets Magazine](https://magazine.openrockets.com)
+6. [What is an Artifact and how it should be (file types, etc.) ](https://about.openrockets.com/docs/press/artifacts)
 
 
 Ryan Chan
