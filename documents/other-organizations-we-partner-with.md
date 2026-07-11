@@ -19,7 +19,7 @@
   6. GiveReal
   7. Memory Matters
   8. Model United Nations | Colombo
-  9. National Tutoring Honour Society
+  9. National Tutoring Honour Society Chapter 001
   10. Model United Nations, Mexico
   11. DofE Ananda College
   12. LSE GLOBAL INNOVATION CHALLENGE
