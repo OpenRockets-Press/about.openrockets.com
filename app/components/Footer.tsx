@@ -33,7 +33,7 @@ export function Footer() {
           </Link>
         </div>
         <div className="pt-6 w-full text-black text-sm font-medium">
-          <p>Contact 24/7: team@openrockets.com</p>
+          <p>Contact 24/7: team@openrockets.com / +1 (646) 820-7984 (NYC)</p>
           <p>© & (TM) 2022-2026 OpenRockets Incorporated. All Rights Reserved.</p>
         </div>
       </div>
