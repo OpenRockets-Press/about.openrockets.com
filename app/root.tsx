@@ -66,7 +66,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       <Header />
       <main className="flex-1 flex flex-col items-center justify-center p-6 text-center mt-12 mb-12">
         <iframe 
-          src="https://www.dinogame.dev/embed?theme=classic&embed=true&showThemeSelector=false&autoStart=true&showInstructions=false" 
+          src="https://cloud.onlinegames.io/games/2025/unity4/cubecraft-survival/index-og.html" 
           width="100%" 
           height="300"
           frameBorder="0" 
