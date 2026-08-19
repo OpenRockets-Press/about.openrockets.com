@@ -1,6 +1,7 @@
 [about-us]
 # Who we are
 
+Our Team: [OpenRockets.com/team](https://openrockets.com/team)
 
 ## About OpenRockets
 
