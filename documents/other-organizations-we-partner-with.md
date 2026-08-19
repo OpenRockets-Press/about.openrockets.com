@@ -3,6 +3,9 @@
 
 ![orgs](https://github.com/user-attachments/assets/7d272ef1-dd42-478a-807e-35463dbb5634)
 
+## ZeroProfit
+ See the full list at [https://zeroprofit.org/#organizations](https://zeroprofit.org/#organizations)
+ 
 ## OpenRockets Press Publishers
   1. National Youth Research Journal
   2. American Journal of Student Research
