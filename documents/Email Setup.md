@@ -2,7 +2,8 @@
 
 # Email Setup
 
-[deaftopenrockets.pdf](https://github.com/user-attachments/files/31225429/deaftopenrockets.pdf)
+[Click here to download Email Setup](https://github.com/user-attachments/files/31225469/EMAILsetup.1.pdf)
+
 
 Thanks
 
