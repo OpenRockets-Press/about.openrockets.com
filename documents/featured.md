@@ -1,4 +1,4 @@
-[Magazine]
+[magazine]
 # Featured
 
 ## Organizations Publishing on OpenRockets Magazine
