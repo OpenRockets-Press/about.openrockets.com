@@ -5,65 +5,56 @@ Our Team: [OpenRockets.com/team](https://openrockets.com/team)
 
 ## About OpenRockets
 
-OpenRockets Inc. is a **global nonprofit service provider and technology infrastructure organization**, currently based in **New York City**. Although we now work across borders, OpenRockets began in **Colombo, Sri Lanka**. It started as a weekend launch centered on a four-member WhatsApp group: four participants in a Code Jam programming competition who wanted to continue talking about technology, programming, and the things they could build. The early project was called **Open Launch**, but that name and the first version felt a little clunky. As our ideas grew, we chose the name **OpenRockets**.
+OpenRockets is a global nonprofit service provider currently based in New York City, with roots in Colombo, Sri Lanka. We help nonprofits and young creators bring their ideas to life through free infrastructure, useful technology, and a community that believes good work deserves the chance to grow.
 
-OpenRockets was born out of software. Open-source software, science, and experimentation remain at the heart of our work because they were there from the beginning. The initiative later operated as the OpenRockets Foundation in the Asia-Pacific region and was fiscally sponsored by The Hack Foundation in 2025. From those beginnings, it has grown into an independent international volunteer community.
+![ZeroProfit](https://github.com/user-attachments/assets/7d272ef1-dd42-478a-807e-35463dbb5634)
 
-Today, **more than 70 independent volunteers across multiple countries** contribute to OpenRockets and its initiatives. We support nonprofits, community projects, and youth-led events through free infrastructure, technical tools, publicity, security and online safety support, and, where resources allow, financial contributions. Our work spans the Americas, Europe, Asia-Pacific, Oceania, Africa, and beyond. We are building an ecosystem in which good ideas, meaningful work, creativity, and knowledge can find a lasting place online.
+Our story began one weekend in Colombo. Four young people who had taken part in a Code Jam programming competition started a WhatsApp group so they could keep talking about technology, software, and what they might build together. Those conversations grew into a small project called Open Launch. It was an early experiment, and the name never quite captured what we hoped it could become. Before long, we called it OpenRockets.
 
-We believe nonprofits have a special power to change the world. A project does not need to be large, famous, or well funded to make a lasting difference. Katherine and Isabelle Adams began Paper for Water with a small origami project that grew into a global nonprofit; their experience reflects the kind of initiative we want to help flourish.
+Software was where we started, and it remains at the heart of what we do. Open source development, scientific curiosity, and a willingness to experiment continue to shape our projects. OpenRockets later operated as the OpenRockets Foundation in the Asia Pacific region and received fiscal sponsorship from The Hack Foundation in 2025. What started with four people has grown into a community that reaches across continents.
 
-"We had no intention of starting a large nonprofit organization." — Katherine Adams, co-founder of Paper for Water ([interview](https://dfwchild.com/paper-for-water-dallas-origami-installation-galleria-dallas/))
+Today, more than seventy independent volunteers in countries around the world contribute to our work. We support nonprofits, community initiatives, and youth events with infrastructure, technical tools, publicity, security, and online safety resources. When funding allows, we also offer financial support. Our aim is to remove the obstacles that prevent small organizations from focusing on the people and causes they care about.
 
-One part of this work is **ZeroProfit**, which we think of as a record label for nonprofits. Legitimate nonprofit initiatives deserve a lasting digital home instead of depending on temporary subdomains, forgotten pages, or platforms that could disappear. Projects doing meaningful work from addresses such as `example.vercel.app` or `sites.google.com/...` can still have an identity that is truly their own. Through ZeroProfit and OpenRockets infrastructure, we aim to give them the hosting, tools, and support they need to grow as a network of nonprofits changing the world.
+We believe that a nonprofit does not have to be large to make a difference. Paper for Water is one example that inspires us. What began as a small origami project by sisters Katherine and Isabelle Adams grew into an organization helping communities gain access to clean water. Katherine once described those early days in simple terms:
+
+"We had no intention of starting a large nonprofit organization." (Katherine Adams, cofounder of Paper for Water, [interview](https://dfwchild.com/paper-for-water-dallas-origami-installation-galleria-dallas/))
 
 ![imaeg](https://github.com/user-attachments/assets/204f64de-ca86-4896-a8c1-3d3486aa75ed)
 
-This mission is also personal to us.
+Protecting what people create is just as important to us as helping them create it. This is personal. One of our team members remembers making origami as a child, only to lose the photographs that recorded those creations years later. It is a small story, but it speaks to something larger. The work young people make can be meaningful, original, and worth preserving, even when there is no lasting place to keep it.
 
-When we were children, we experienced firsthand how easily the things we create can disappear. One of our team members remembers making origami creations at the age of seven or eight, only for those creations to eventually disappear from a family photo archive. Something that had been created with care and imagination was simply gone. Experiences like these taught us an important lesson: **the intellectual property of minors deserves lasting protection.**
+That belief helped shape OpenRockets Press. We want young creators to have reliable ways to publish their code, research, art, and other original work while keeping their ownership and recognition. Above all, we want their creations to remain accessible to them as they grow into adulthood.
 
-That is why we built **OpenRockets Press**. We want young people to retain ownership of, access to, and reliable records of their original creative work, including as they move into adulthood. Preserving code, research, art, and other intellectual property should not depend on a childhood device, account, or cloud folder surviving forever. We aim to protect minors from losing access to the work they made while young, while respecting the creators' rights. We are also building the Interkid Browser and Interkid.org, an internet experience designed with young people in mind. Some of us have personally experienced the shock and discomfort of encountering unnecessary or inappropriate content online at a young age. We do not want other young people to experience the same thing.
-
-Young people deserve a web that is safer, more thoughtful, and built around curiosity rather than exploitation. Our work also includes projects such as Scienteen, where we are exploring new ways for young people and researchers to share ideas. Whether it is a research preprint submitted to a journal or an eggshell painting submitted to a preprint repository, we believe creativity and knowledge should have a place to be documented, discovered, and remembered. Together, these projects reflect a broader vision. We are exploring how the internet can become a place where nonprofits can have homes, ideas can have archives, young people can have safer spaces, and creations can have a chance to endure.
-
+We also build technology that makes the internet more useful and welcoming for young people. Interkid Browser and Interkid.org focus on a safer browsing experience, while projects such as Scienteen explore new ways to share research and creative ideas. Across all of these efforts, our purpose remains the same: to help good ideas endure and give the people behind them room to do more.
 
 ## Our Mission
 
-We believe teenagers are capable of building meaningful things when they have access to the right opportunities and support. We want OpenRockets to become a key pillar of infrastructure and practical support for organizations doing good for humanity, however small those organizations may be.
+We believe young people can create work of real value when they are trusted, encouraged, and given the right tools. We want OpenRockets to become a dependable part of the infrastructure behind organizations doing good, especially those whose ambitions are much bigger than their resources.
 
-Rather than focusing on a single program, we develop projects across education, publishing, developer infrastructure, open-source software, science, and youth initiatives. Across these efforts, two commitments guide us: give nonprofits tools to do more good, and help young creators secure, preserve, and keep access to their intellectual property as they grow into adulthood.
+Our work brings together software, science, education, publishing, and nonprofit support. Through it all, we are guided by two commitments: helping nonprofits achieve more, and helping young creators protect and retain access to their intellectual property.
 
 ## ZeroProfit
 
 [Learn more about ZeroProfit](https://zeroprofit.org)
 
-![kju](https://github.com/user-attachments/assets/7d272ef1-dd42-478a-807e-35463dbb5634)
-
-Our core infrastructure support for youth-led nonprofits and young creators is free of charge. Where we offer optional paid services to other organizations or adult-run startups, the revenue helps sustain and improve our infrastructure; any surplus is reinvested in our work or directed toward mission-aligned charitable initiatives. Financial contributions to nonprofit events, where available, are separate from access to our free services.
+ZeroProfit helps nonprofits establish a lasting digital presence. Our core infrastructure services for young creators and youth organizations are free. We may offer optional paid services to other organizations to help sustain our infrastructure, with any surplus directed back into our work or into charitable initiatives. Financial contributions to events, when available, are separate from access to our free services.
 
 ## Protecting Young Creators
 
 ![e](https://github.com/user-attachments/assets/73491f2b-e228-46a8-bb63-6c9ab427b451)
 
-Young creators deserve clear ownership of the work they create, the ability to document that ownership, and a practical path to access and manage their work as adults. Protecting the intellectual property of minors is a central OpenRockets priority, not a side project.
+Young people should be able to take pride in what they create and continue to access that work years later. We want to make it easier for them to document their contributions, receive proper credit, and understand the rights attached to their creations.
 
-Our licensing work includes OpenRockets Kangaroo, OpenRockets Hummingbird, and OpenRockets Beaver, developed around the needs of young creators, alongside ongoing research into better ways to preserve and share their work. OpenRockets Press provides publishing and archival infrastructure to help creators keep their contributions discoverable and properly attributed.
+Through OpenRockets Press and our work on the Beaver, Kangaroo, and Hummingbird licenses, we are exploring better ways for young creators to publish, share, and preserve their software, research, and other original work. Protecting the intellectual property of minors is a central part of our mission.
 
 ## Join Us
 
-OpenRockets is built by volunteers from around the world.
-Whether you are a developer, designer, writer, researcher, educator, or simply someone who wants to contribute, we would love to hear from you.
-Our hiring process is intentionally informal. Sometimes it starts with a conversation about your interests. Sometimes it starts with a game of chess. We care more about curiosity, collaboration, and thoughtful decision making than rigid interviews.
-As a teen-led organization, we also welcome experienced adults who are interested in helping with governance and board responsibilities as we continue to grow.
+OpenRockets is built by volunteers from around the world. Whether you are a developer, designer, writer, researcher, educator, or simply curious about what we do, we would love to hear from you.
+
+We care more about curiosity, collaboration, and thoughtful ideas than formal applications. Sometimes a conversation starts with a project. Sometimes it starts with a game of chess. We also welcome experienced adults who can help with guidance, governance, and long term planning as our community grows.
 
 ## Contact
 
 * General inquiries: **[team@openrockets.com](mailto:team@openrockets.com)**
 * Press and Magazine: **[press@openrockets.com](mailto:press@openrockets.com)**
 * Other inquiries: **[team@openrockets.com](mailto:team@openrockets.com)**
-
-
-
-
-
