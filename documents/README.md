@@ -5,7 +5,7 @@ Our Team: [OpenRockets.com/team](https://openrockets.com/team)
 
 ## About OpenRockets
 
-OpenRockets is a global nonprofit service provider currently based in New York City, with roots in Colombo, Sri Lanka. We help nonprofits and young creators bring their ideas to life through free infrastructure, useful technology, and a community that believes good work deserves the chance to grow.
+OpenRockets is a global nonprofit service provider currently based in New York City, We help nonprofits and young creators bring their ideas to life through free infrastructure, useful technology, and a community that believes good work deserves the chance to grow.
 
 ![ZeroProfit](https://github.com/user-attachments/assets/7d272ef1-dd42-478a-807e-35463dbb5634)
 
